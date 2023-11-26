@@ -4,7 +4,8 @@ import './App.css'
 import Navbar from './components/Navbar';
 import Login from './pages/Login'
 import Homepage from './pages/Homepage'
-import Eventspage from './pages/Events'
+import EventsPage from './pages/Events/Events'
+import EventsDetails from './pages/Events/EventsDetails';
 
 
 function App() {
@@ -15,7 +16,11 @@ function App() {
     <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/events" element={<Eventspage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route
+            path="/event-details/:eventId"
+            element={<EventsDetails />}
+          />
         </Routes>
     </>
   )

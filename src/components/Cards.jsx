@@ -1,7 +1,7 @@
 export const EventsCard = ({ events }) => {
     return (
       <div
-        className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] w-full p-3"
+        className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] w-full p-3 h-full"
         key={events.id}
       >
         <div className="flex flex-col gap-3 lg:gap-5 flex-grow justify-self-end">

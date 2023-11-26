@@ -1,6 +1,6 @@
 import React from "react";
 // import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-// import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
 export const Button = ({ text, className, onClick }) => {
@@ -17,16 +17,20 @@ export const Button = ({ text, className, onClick }) => {
   };
  
   
-//   export const IconButton = ({ text, className, onClick, icon, iconSize, iconStyle }) => {
-//     return (
-//       <div>
-//         <button
-//         onClick={onClick}
-//           className={`w-[fit-content] flex flex-row justify-between items-center space-x-2 py-[0.8rem] px-2 whitespace-nowrap text-base md:text-lg bg-[#ff7518] font-bold rounded-md md:py-[0.6875rem] md:px-6 hover:bg-[#ff690d] hover:shadow-md transition-all ease-in ${className}`}
-//         >
-//             <span>{icon && <FontAwesomeIcon icon={icon} className="icon" style={iconStyle} size={iconSize}/>}</span>
-//          <span>{text}</span>
-//         </button>
-//       </div>
-//     );
-//   };
+  export const IconButton = ({ text, className, onClick, icon, iconSize, iconStyle }) => {
+    return (
+			<div>
+				<button
+					onClick={onClick}
+					className={`flex flex-row justify-between items-center w-[fit-content] py-[0.8rem] px-4 gap-2 whitespace-nowrap text-base md:text-lg bg-[#F57328] font-bold rounded-[32px] md:py-[1rem] md:px-6 hover:b cursor-pointer hover:shadow-md transition-all ease-in${className}`}
+				>
+					<span className={className}>{text}</span>
+					<span>
+						{icon && (
+							<img src={icon} className={iconStyle}/>
+						)}
+					</span>
+				</button>
+			</div>
+		);
+  };
