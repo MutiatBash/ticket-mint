@@ -6,7 +6,7 @@ const Login = () => {
   return (
     <div className='flex gap-5 py-5'>
         <ConnectButton/>
-       <WalletButton/>
+        <WalletButton/>
     </div>
   )
 }

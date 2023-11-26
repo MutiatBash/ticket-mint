@@ -20,21 +20,21 @@ import {
   zora,
 } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
-// import {infuraProvider }from 'wagmi/providers/infura';
 import { publicProvider } from 'wagmi/providers/public';
 import {jsonRpcProvider} from 'wagmi/providers/jsonRpc';
+import { BrowserRouter } from "react-router-dom";
 
 const { chains, publicClient } = configureChains(
-  [polygon, optimism, arbitrum, base, zora, sepolia],
+  [sepolia],
   [
-    alchemyProvider({apiKey:import.meta.env.ALCHEMY_PROVIDER_KEY}),
+    alchemyProvider({apiKey:"4P4iJ0eynle-E1mL4tdSYIr4QjjHqkVk"}),
     publicProvider()
   ]
 );
 
 const { connectors } = getDefaultWallets({
   appName: 'Ticket Mint',
-  projectId: `${import.meta.env.PROJECT_ID}`,
+  projectId: "76ec681405433c5c85d659716ea0fd20",
   chains
 });
 
@@ -49,7 +49,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
+        <BrowserRouter>
         <App />
+        </BrowserRouter>
       </RainbowKitProvider>
     </WagmiConfig>
   </React.StrictMode>,

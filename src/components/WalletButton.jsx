@@ -9,9 +9,9 @@ import { useEnsAvatar } from 'wagmi'
 
 
 export const WalletButton = () => {
-    const { data:avatar, isError, isLoading } = useEnsAvatar({
-        name: 'jxom.eth',
-      })
+    // const { data:avatar, isError, isLoading } = useEnsAvatar({
+    //     name: 'jxom.eth',
+    //   })
     
   return (
     <ConnectButton.Custom>
@@ -58,7 +58,7 @@ export const WalletButton = () => {
               return (
                 <div style={{ display: 'flex', gap: 12 }}>
                   <button
-                  className="w-[fit-content] py-[0.8rem] px-3  whitespace-nowrap text-base bg-[#fff] font-bold border rounded-lg md:py-[0.6875rem] md:px-6 hover:bg-[#fbf8ff] shadow transition-all ease-in"
+                  className="w-[fit-content] py-[0.8rem] px-3 lg:px-6 whitespace-nowrap text-base bg-[#fff] font-bold text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent rounded-[32px] shadow transition-all ease-in"
                     onClick={openChainModal}
                     style={{ display: 'flex', alignItems: 'center' }}
                     type="button"
@@ -85,8 +85,7 @@ export const WalletButton = () => {
                     )}
                     {chain.name}
                   </button>
-                  <button onClick={openAccountModal} type="button" className="w-[fit-content] py-[0.8rem] px-3  whitespace-nowrap text-base bg-[#fff] font-bold border rounded-lg md:py-[0.6875rem] md:px-6 hover:bg-[#f8f5fc] shadow transition-all ease-in">
-                    {avatar}
+                  <button onClick={openAccountModal} type="button" className="w-[fit-content] py-[0.8rem] px-3  whitespace-nowrap text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent rounded-[32px] shadow transition-all ease-in">
                     {account.displayName}
                     {account.displayBalance
                       ? ` (${account.displayBalance})`

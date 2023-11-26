@@ -8,7 +8,7 @@ export const Button = ({ text, className, onClick }) => {
       <div>
         <button
         onClick={onClick}
-          className={`w-[fit-content] py-[0.8rem] px-3  whitespace-nowrap text-base md:text-lg bg-[#9318ff] font-bold rounded-md md:py-[0.6875rem] md:px-6 hover:bg-[#7e0dff] hover:shadow-md transition-all ease-in ${className}`}
+          className={`w-[fit-content] py-[0.8rem] px-4  whitespace-nowrap text-base md:text-lg bg-[#F57328] font-bold rounded-[32px] md:py-[1rem] md:px-6 hover:b cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
         >
           {text}
         </button>
