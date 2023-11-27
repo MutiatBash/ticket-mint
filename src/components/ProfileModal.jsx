@@ -11,8 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const ProfileModal = ({ user, setUser, onClick }) => {
 	return (
-		<div className="fixed font-['Manrope'] text-[#fff] border border-[#d9d9d934] rounded-2xl p-4 bg-[#030203] lg:w-[18rem] top-20 right-10">
-			{user?.loading && <p>Getting your details....</p>}
+		<div className="fixed font-['Manrope'] text-[#fdfcfd] border border-[#d9d9d934] rounded-2xl p-4 bg-[#030203] lg:w-[18rem] top-[5.5rem] right-10">
+			{user?.loading && <p className="text-[#fdfcfd93] text-sm">Getting your details....</p>}
 			{user?.issuer && (
 				<div className="flex flex-col gap-3 items-start">
 					<p>

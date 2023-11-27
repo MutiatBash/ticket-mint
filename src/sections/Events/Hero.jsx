@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "../../components/Button";
+import { Button, IconButton } from "../../components/Button";
 
 const HeroEvents = () => {
 	return (
@@ -14,15 +14,20 @@ const HeroEvents = () => {
 				<h2 className="text-[#FFFDFC]  text-4xl lg:text-6xl w-full lg:w-[70%] lg:leading-[4.5rem]">
 					Unlock the Future of Memorable Events
 				</h2>
-				<p className="text-[#D9D9D9D1] font-['Manrope'] w-full lg:w-[45%] text-base lg:text-[1.4rem] pb-4">
+				<p className="text-[#D9D9D9D1] font-['Manrope'] w-full lg:w-[45%] text-base lg:text-[1.4rem] pb-4 leading-8">
 					Experience a journey where events unfold, NFT tickets shine ,
 					digital assets come to life and communities thrive.
 				</p>
-				<div className="flex flex-row gap-3 lg:gap-10 justify-between items-center px-10">
-					<Button text="Create Events" className="text-[#FFFDFC] text-sm" />
+				<div className="flex flex-row gap-3 lg:gap-8 justify-between items-center px-10">
+					<IconButton
+						text="Create Events"
+						icon="/images/arrow-up-right.svg"
+						iconStyle={`text-[#FFFDFC] w-6`}
+						className="text-[#FFFDFC] font-['Stoke'] text-sm lg:text-base "
+					/>
 					<Button
 						text="Explore Events"
-						className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-6 font-['Stoke'] text-sm"
+						className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent lg:px-6 font-['Stoke'] text-sm lg:text-base"
 					/>
 				</div>
 				<div>

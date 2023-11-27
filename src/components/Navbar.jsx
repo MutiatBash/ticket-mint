@@ -12,7 +12,7 @@ import { WalletButton } from "./WalletButton";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import ProfileModal from "./ProfileModal";
 import { UserContext } from "../Context";
-import { magic } from "../apis/magic";
+import { magic } from "../../appApis/magic";
 import { useNavigate } from "react-router-dom";
 
 export const links = [
@@ -61,15 +61,16 @@ const Navbar = () => {
 		magic.user.isLoggedIn().then((isLoggedIn) => {
 			if (isLoggedIn) {
 				// Pull their metadata, update our state, and route to home
-				magic.user.getMetadata().then((userData) => setUser(userData));
-				navigate("/");
+				magic.user.getInfo().then((userData) => setUser(userData));
+				// navigate("/");
+				setUser({ loading: false });
 				// loading: false
 			}
-			else {
-				// If false, route them to the login page and reset the user state
-				navigate("/signup");
-				setUser({ user: null });
-			}
+			// else {
+			// 	// If false, route them to the login page and reset the user state
+			// 	navigate("/signup");
+			// 	setUser({ user: null });
+			// }
 		});
 		// Add an empty dependency array so the useEffect only runs once upon page load
 	}, []);
@@ -83,7 +84,7 @@ const Navbar = () => {
 		});
 	};
 	return (
-		<div className="w-full flex flex-col gap-3 h-full py-4 px-4 md:px-14 lg:px-16 bg-[#030202] sticky top-0 z-20">
+		<div className="w-full flex flex-col gap-3 h-full py-[1.1rem] px-4 md:px-14 lg:px-16 bg-[#030202] sticky top-0 z-20">
 			<div className="w-full flex items-center justify-between">
 				<div>
 					{/* <img
@@ -111,7 +112,7 @@ const Navbar = () => {
 				</ul>
 				<div className="hidden lg:flex flex-row gap-6 items-center justify-between">
 					{/* <ConnectButton/> */}
-					{user ? (
+					{user?.issuer ? (
 						<div onClick={handleProfile} className="cursor-pointer">
 							<FontAwesomeIcon icon={faUser} style={{ color: "#fff" }} />{" "}
 							{profileOpen && (
