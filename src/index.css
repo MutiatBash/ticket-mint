@@ -9,3 +9,131 @@
 #root{
     background-color: #030203;
 }
+
+/* VANILLA CSS STYLING */
+
+          .Purchase-form {
+            /* width: 80%;
+            height: 100%; */
+            margin: auto;
+            padding: 0 2rem;
+            /* padding-top: 6rem; */
+        }
+
+        .second {
+            width: 45%;
+           padding: 2rem 0;
+        }
+         .vertical {
+            border-left: 1px solid #6D6767;
+        }
+
+        #heading3 {
+            text-align: center;
+            text-transform: capitalize;
+            color: #d9d9d9;
+            font-family: 'Stoke';
+            font-size: 1.8rem;
+            font-weight: 400;
+          
+        }
+        .h3-head{
+            padding: 1.2rem 0;
+            background-color: #19181880;
+            border-top-right-radius: 1rem;
+            border-top-left-radius: 1rem;
+        }
+        .p-ticket {
+            line-height: 28px;
+            font-size: 0.95rem;
+            font-family: 'Manrope';
+            font-weight: 400;
+            color: #d9d9d9;
+            word-wrap: break-word;
+            width: 26em;
+        }
+
+        .forms {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .input-form {
+            width: 350px;
+            padding: 0.6rem 1rem;
+            border-radius: 14px;
+            border: 1px solid #6D6767CC;
+            background-color: #191818B2;
+            color: white;
+        }
+        .Wallet-Address {
+            font-family: 'Manrope';
+            line-height: 44px;
+            font-size: 1rem;
+            font-weight: 200;
+            color: #d9d9d9;
+            padding-bottom: 0.8rem;
+        }
+
+        .hack-img {
+            width: 100%;
+            /* height: 300px; */
+
+        }
+        .cart-h6 {
+            color: #4f4c4c;
+            text-align: center;
+            margin-top: 70px;
+            font-family: 'Manrope';           
+            font-size: 16px;
+            font-weight: 400;
+        }
+
+        .ticket-h3 {
+            color: #d9d9d9;
+            font-family: 'Manrope';           
+            font-size: 1rem;
+        }
+         .ticket-p {
+            color: #F57328;
+            font-family: 'Manrope';  
+        }
+
+        .grid-form {
+            width: 350px;
+            border: 1px solid #6D6767;
+            background-color: #191818;
+            border-radius: 14px;
+            margin-top: 10px; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .p-general {
+            display: flex;
+            margin-left: 10px;
+            color: #d9d9d9;
+            text-transform: capitalize;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 200;
+        }
+
+        .grid-3 {
+        display: flex;
+        justify-content: space-between;
+        }
+
+         .hr-line {
+            background-color: #6D6767CC;
+            border: 0.5px solid #6D6767CC;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+        }
