@@ -18,7 +18,7 @@ const EventsSection = () => {
             <span className={`border hover:cursor-pointer border-[#D9D9D926] rounded-[0.9rem] w-fit px-4 py-1 text-[0.7rem] text-[#FFFDFC] ${tag === "All" ? "bg-[#F57328]" : "bg-[#19181880] text-[#F57328]"}`}>{tag}</span>
         )      
      })}</div>
-       <div className='absolute top-0'><img src='/images/center-gradient.svg' alt="gradient"/></div>
+       <div className='absolute top-0 pointer-events-none'><img src='/images/center-gradient.svg' alt="gradient"/></div>
     <div className='grid lg:grid-cols-4 gap-8 lg:gap-y-12 bg-[#020302] py-6 lg:py-8'>
       {
         events?.paid?.map((events, index) =>{

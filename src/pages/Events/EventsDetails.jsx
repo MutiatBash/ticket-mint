@@ -130,7 +130,7 @@ const EventsDetails = () => {
 									icon="/images/arrow-up-right.svg"
 									iconStyle={{ color: "#FFFDFC" }}
 									onClick={openBuyModal}
-									className="text-[#FFFDFC] font-['Stoke'] self-end mt-auto"
+									className="text-[#FFFDFC] font-['Stoke']"
 								/>
 								{/* <div className=""> */}
 									{buyModal && <BuyTicketsModal events={selectedEvent} onClose={()=>setBuyModal(false)}/>}

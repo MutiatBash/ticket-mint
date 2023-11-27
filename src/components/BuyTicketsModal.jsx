@@ -22,13 +22,14 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 	const [address, setAddress] = useState("");
 	const [amount, setAmount] = useState(0);
 
-	function handleIncreaseTickets() {
-		setAmount(amount + 1);
+	const handleIncreaseTickets =() => {
+		setAmount(prevAmount =>prevAmount + 1);
 	}
 
     function handleDecreaseTickets() {
         if(amount > 0){
-			setAmount(amount - 1);}
+			setAmount(prevAmount =>prevAmount - 1);
+        }
 		}
 	// WRITING TO THE CONTRACT
 
@@ -52,14 +53,14 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 	};
 	return (
 		<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 inset-x-0 inset-y-0 py-12 h-full overflow-y-hidden">
-			<div className="absolute cursor-pointer right-10 " onClick={onClose}>
+			<div className="absolute cursor-pointer right-10" onClick={onClose}>
 				<FontAwesomeIcon
 					icon={faCircleXmark}
 					style={{ color: "#fff", fontSize: "1.5rem" }}
 				/>
 			</div>
 			<div className="border border-[#D9D9D926] rounded-2xl bg-[#030203] mx-auto z-20 h-full py-8 pt-0 w-[70%] overflow-y-scroll relative pb-0">
-				<div className="absolute top-0 right-0">
+				<div className="absolute top-0 right-0 pointer-events-none">
 					<img src="/images/form-gradient-right.svg" alt="gradient" />
 				</div>
 				<div className="h3-head">
@@ -71,9 +72,9 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 							<p className="p-ticket">
 								Purchase tickets that serve as NFTs that can be owned
 								and minted.
-								<p className="py-3 text-sm">
-									Enter your wallet address or email address
-								</p>
+							</p>
+							<p className="p-ticket py-3 text-sm">
+								Enter your wallet address or email address
 							</p>
 							<div className="">
 								<form action="" className="forms py-2">
@@ -85,12 +86,12 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 											value={address}
 											onChange={(e) => setAddress(e.target.value)}
 											type="text"
-											className="input-form placeholder:text-[#d9d9d941]"
+											className="purchase-input-form placeholder:text-[#d9d9d941]"
 											placeholder="0x078h9uvribu9oupytvtytuyuuy"
 										/>
 									</label>
 
-									<label htmlFor="Email Address">
+									{/* <label htmlFor="Email Address">
 										<span className="Wallet-Address">
 											Email Address
 										</span>
@@ -99,7 +100,7 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 											className="input-form placeholder:text-[#d9d9d941]"
 											placeholder="johndoe@gmail.com"
 										/>
-									</label>
+									</label> */}
 								</form>
 							</div>
 
@@ -107,23 +108,29 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 								<p className="ticket-h3">Tickets</p>
 								<p className="ticket-p text-xs pt-0 font-bold">Free</p>
 							</div>
-							<div className="grid-form">
+							<div className="ticket-form">
 								<div className="flex flex-row justify-between items-center p-4 py-5">
 									<p className="text-[#D9D9D9CC]">General admission</p>
 
-									<div className="grid-3 gap-5 items-center">
+									<div className="flex flex-row justify-between gap-5 items-center">
 										<button
 											className={`bg-[#6D676745] py-0.5 px-2 border border-[#6D6767] rounded-lg cursor-pointer ${
-												amount === 1 ? "bg-[#F57328]" : ""
+												amount >= 1
+													? "bg-[#F57328] border border-[#F57328]"
+													: ""
 											}`}
+											onClick={handleDecreaseTickets}
+                                            disabled={amount === 0}
 										>
 											<FontAwesomeIcon
 												icon={faMinus}
-												style={{ color: "#D9D9D9B2" }}
+												style={{color: amount >= 1 ? "#FFFDFC" : "#D9D9D9B2"}}
 											/>
 										</button>
 
-										<p className="text-[#F57328]">{amount}</p>
+										<p className="text-[#F57328] font-bold w-fit">
+											{amount}
+										</p>
 
 										<button
 											className="bg-[#F57328] py-0.5 px-2 rounded-lg cursor-pointer"
@@ -132,7 +139,6 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 											<FontAwesomeIcon
 												icon={faPlus}
 												style={{ color: "#FFFDFC" }}
-												onClick={handleIncreaseTickets}
 											/>
 										</button>
 									</div>
@@ -169,6 +175,7 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 									icon="/images/arrow-up-right.svg"
 									iconStyle={{ color: "#FFFDFC" }}
 									className="text-[#FFFDFC] font-['Stoke'] text-base "
+                                    onClick={handleSendToWallet}
 								/>
 							</div>
 						</div>
@@ -192,3 +199,10 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 		</div>
 	);
 };
+
+
+const OptionsModal = ()=>{
+    return(
+        <div></div>
+    )
+}

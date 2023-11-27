@@ -110,7 +110,7 @@ const Footer = () => {
               </div>
             </label>
           </div>
-          <Button text={"Subscribe"} className="text-[0.6rem] text-white" />
+          <Button text={"Subscribe"} className="text-[0.6rem] px-10 text-white" />
         </div>
       </div>
       <div className="border-[0.3px] w-full mt-10 border-[#d9d9d971]"></div>
