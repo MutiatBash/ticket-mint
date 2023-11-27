@@ -3,26 +3,26 @@ import { Button } from "../../components/Button";
 
 const HeroEvents = () => {
 	return (
-		<div className="py-14 lg:px-16 text-center relative">
+		<div className="p-3 lg:py-14 lg:px-16 text-center relative">
 			<div>
 				<img
 					src="/images/right-gradient.svg"
 					className="absolute right-0 top-0"
 				/>
 			</div>
-			<div className="flex flex-col gap-10 items-center justify-center py-16 font-['Stoke']">
-				<h2 className="text-[#FFFDFC] text-6xl w-[70%] leading-[4.5rem]">
+			<div className="flex flex-col gap-6 lg:gap-10 items-center justify-center py-12 lg:py-16 font-['Stoke']">
+				<h2 className="text-[#FFFDFC]  text-4xl lg:text-6xl w-full lg:w-[70%] lg:leading-[4.5rem]">
 					Unlock the Future of Memorable Events
 				</h2>
-				<p className="text-[#D9D9D9D1] font-['Manrope'] w-[45%] text-[1.4rem] pb-4">
+				<p className="text-[#D9D9D9D1] font-['Manrope'] w-full lg:w-[45%] text-base lg:text-[1.4rem] pb-4">
 					Experience a journey where events unfold, NFT tickets shine ,
 					digital assets come to life and communities thrive.
 				</p>
-				<div className="flex flex-row gap-10 justify-between items-center">
-					<Button text="Create Events" className="text-[#FFFDFC]" />
+				<div className="flex flex-row gap-3 lg:gap-10 justify-between items-center px-10">
+					<Button text="Create Events" className="text-[#FFFDFC] text-sm" />
 					<Button
 						text="Explore Events"
-						className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-6 font-['Stoke']"
+						className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-6 font-['Stoke'] text-sm"
 					/>
 				</div>
 				<div>

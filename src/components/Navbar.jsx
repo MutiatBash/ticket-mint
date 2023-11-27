@@ -72,7 +72,10 @@ const Navbar = () => {
 				</ul>
 				<div className="hidden lg:flex flex-row gap-6 items-center justify-between">
 					{/* <ConnectButton/> */}
-					<Link to="/signup" className="text-[#F57328] font-semibold w-fit">
+					<Link
+						to="/signup"
+						className="text-[#F57328] font-semibold w-fit"
+					>
 						SignUp/Login
 					</Link>
 					<WalletButton />
@@ -80,9 +83,15 @@ const Navbar = () => {
 				<div className="flex lg:hidden flex-row gap-10 items-center justify-between">
 					<button onClick={handleMenu} className="">
 						{menuOpen ? (
-							<FontAwesomeIcon icon={faXmark} />
+							<FontAwesomeIcon
+								icon={faXmark}
+								style={{ color: "#FFFDFC" }}
+							/>
 						) : (
-							<FontAwesomeIcon icon={faBars} />
+							<FontAwesomeIcon
+								icon={faBars}
+								style={{ color: "#FFFDFC" }}
+							/>
 						)}
 					</button>
 				</div>
