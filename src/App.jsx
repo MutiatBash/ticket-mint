@@ -8,7 +8,7 @@ import EventsPage from './pages/Events/Events'
 import EventsDetails from './pages/Events/EventsDetails';
 import SignUp from './pages/Signup';
 import { UserContext } from './Context';
-import { magic } from './utils/magic';
+import { magic } from './apis/magic';
 
 
 function App() {

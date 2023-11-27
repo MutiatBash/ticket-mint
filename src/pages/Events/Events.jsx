@@ -1,6 +1,6 @@
 import React, {useState}from 'react'
 import { useContractReads, useAccount, useContractWrite,usePrepareContractWrite, useContractRead} from 'wagmi'
-import { token } from '../../utils/testAbi'
+import { token } from '../../apis/testAbi'
 import { Button } from '../../components/Button'
 import {ConnectButton} from "@rainbow-me/rainbowkit"
 import Footer from '../../components/Footer'
