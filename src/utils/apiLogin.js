@@ -1,7 +1,8 @@
 import { Magic } from "@magic-sdk/admin";
 
 // Create an instance of magic admin using our secret key (not our publishable key)
-let mAdmin = new Magic(`${import.meta.env.VITE_SECRET_KEY}`);
+// let mAdmin = new Magic(`${import.meta.env.VITE_SECRET_KEY}`);
+let mAdmin = new Magic("sk_live_2AB9F3047DD6EFCD");
 
 export default async function login(req, res) {
 	try {

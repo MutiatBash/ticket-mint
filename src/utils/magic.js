@@ -24,4 +24,4 @@ const createMagic = (key) => {
 };
 
 // Pass in your publishable key from your .env file
-export const magic = createMagic(`${import.meta.env.VITE_PUBLISHABLE_API_KEY}`);
+export const magic = createMagic("pk_live_B6D80BE438E4F1B6");

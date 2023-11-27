@@ -23,7 +23,7 @@ const { chains, publicClient } = configureChains(
 	[sepolia],
 	[
 		alchemyProvider({
-			apiKey: `${import.meta.env.VITE_ALCHEMY_PROVIDER_KEY}`,
+			apiKey: "4P4iJ0eynle-E1mL4tdSYIr4QjjHqkVk",
 		}),
 		publicProvider(),
 	]
@@ -31,7 +31,8 @@ const { chains, publicClient } = configureChains(
 
 const { connectors } = getDefaultWallets({
 	appName: "Ticket Mint",
-	projectId: `${import.meta.env.VITE_PROJECT_ID}`,
+	// projectId: `${import.meta.env.VITE_PROJECT_ID}`,
+	projectId: "76ec681405433c5c85d659716ea0fd20",
 	chains,
 });
 
