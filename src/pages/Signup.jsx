@@ -5,7 +5,7 @@ import { Button } from "../components/Button";
 import { UserContext } from "../Context";
 import { useNavigate, Link } from "react-router-dom";
 import { magic } from "../../appApis/magic";
-import {ThreeCircles} from "react-loader-spinner"
+import { ThreeCircles } from "react-loader-spinner";
 
 const SignUp = () => {
 	const { user, setUser } = useContext(UserContext);
@@ -50,7 +50,7 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center my-auto p-3 h-screen font-['Manrope']">
+		<div className="flex flex-col justify-center items-center my-auto p-3 h-screen mb-0 pb-0 font-['Manrope']">
 			<div className="absolute top-0 right-0 pointer-events-none">
 				<img src="/images/right-gradient.svg" alt="gradient" />
 			</div>
@@ -95,28 +95,27 @@ const SignUp = () => {
 						onChange={(e) => setEmail(e.target.value)}
 					/>
 				</div>
-				<div className="w-full py-6 px-20 self-center mx-auto">
-					<Button
+				<div className="w-full py-6 lg:px-24 self-center mx-auto">
+					<button
 						disabled={email === ""}
 						type="submit"
-						className={`w-full mx-auto py-2 rounded-[28px] text-[#FFFDFC] text-center justify-self-center ${
+						className={`w-full mx-auto py-3 lg:py-4 rounded-[28px] text-[#FFFDFC] text-center self-center ${
 							email === ""
 								? "bg-[#3c3a3a9e] disabled:pointer-events-none disabled:cursor-none text-[#fffdfc55] font-normal"
-								: "bg-[#F57328]"
+								: "bg-[#F57328] font-semibold"
 						}`}
-						text={
-							loading ? (
-								<ThreeCircles
-									height="20"
-									color="#fdfcfd"
-									ariaLabel="three-rotating-circles"
-									wrapperClass="text-center mx-auto"
-								/>
-							) : (
-								<span>Sign Up</span>
-							)
-						}
-					/>
+					>
+						{loading ? (
+							<ThreeCircles
+								height="20"
+								color="#fdfcfd"
+								ariaLabel="three-rotating-circles"
+								wrapperClass="text-center mx-auto"
+							/>
+						) : (
+							<span>Sign Up</span>
+						)}
+					</button>
 				</div>
 
 				{/* <button className="connect">connect with</button> */}
