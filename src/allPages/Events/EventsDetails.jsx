@@ -14,7 +14,7 @@ import { EventsCard } from "../../components/Cards";
 import { Button, IconButton } from "../../components/Button";
 import Footer from "../../components/Footer";
 import { BuyTicketsModal } from "../../components/BuyTicketsModal";
-import {Navbar} from "../../components/Navbar"
+import Navbar from "../../components/Navbar"
 
 const EventsDetails = () => {
 	const { eventId } = useParams();
