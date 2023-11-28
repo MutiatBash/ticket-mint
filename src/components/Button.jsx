@@ -9,7 +9,7 @@ export const Button = ({ text, className, onClick , disabled}) => {
         <button
         disabled={disabled}
         onClick={onClick}
-          className={`w-[fit-content] py-[0.8rem] px-5  font-['Manrope'] whitespace-nowrap text-base bg-[#F57328] font-bold rounded-[32px] md:py-[0.95rem] hover:b cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
+          className={`w-[fit-content] py-[0.8rem] px-5 font-['Manrope'] whitespace-nowrap text-base bg-[#F57328] font-bold rounded-[32px] md:py-[0.95rem] hover:b cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
         >
           {text}
         </button>
@@ -23,9 +23,9 @@ export const Button = ({ text, className, onClick , disabled}) => {
 			<div>
 				<button
 					onClick={onClick}
-					className={`flex flex-row justify-between items-center w-[fit-content] font-['Manrope'] py-[0.8rem] px-4 gap-2 whitespace-nowrap text-base bg-[#F57328] font-bold rounded-[32px] md:py-[0.95rem] md:px-6 hover:scale-105 cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
+					className={`flex flex-row justify-between items-center font-['Manrope'] py-[0.8rem] px-4 gap-2 whitespace-nowrap text-base bg-[#F57328] font-bold rounded-[32px] md:py-[0.95rem] md:px-6 hover:scale-105 cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
 				>
-					<span className={className}>{text}</span>
+					<span>{text}</span>
 					<img src={icon} className={iconStyle} />
 				</button>
 			</div>

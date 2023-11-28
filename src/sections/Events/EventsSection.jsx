@@ -36,7 +36,7 @@ const EventsSection = () => {
 			<div className="absolute top-0 pointer-events-none">
 				<img src="/images/center-gradient.svg" alt="gradient" className="pointer-events-none" />
 			</div>
-			<div className="grid lg:grid-cols-4 gap-6 lg:gap-8 lg:gap-y-12 bg-[#020302] py-6 lg:py-8 w-full">
+			<div className="grid lg:grid-cols-4 gap-6 lg:gap-8 lg:gap-y-12 bg-[#020302] py-4 lg:py-8 w-full">
 				{events?.paid?.map((events, index) => {
 					return (
 						<Link to={`/event-details/${events.id}`}>
