@@ -14,16 +14,16 @@ const HeroEvents = () => {
 				<h2 className="text-[#FFFDFC]  text-[1.7rem] lg:text-6xl w-full lg:w-[70%] lg:leading-[4.5rem]">
 					Unlock the Future of Memorable Events
 				</h2>
-				<p className="text-[#D9D9D9D1] font-['Manrope']  lg:w-[45%] text-[0.9rem] lg:text-[1.4rem] pb-4 lg:leading-8">
+				<p className="text-[#D9D9D9D1] font-['Manrope']  lg:w-[45%]  lg:text-[1.4rem] pb-4 lg:leading-8">
 					Experience a journey where events unfold, NFT tickets shine ,
 					digital assets come to life and communities thrive.
 				</p>
-				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center lg:px-10 w-full">
+				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center px-5 lg:px-10 w-[100%]">
 					<IconButton
 						text="Create Events"
 						icon="/images/arrow-up-right.svg"
 						iconStyle={`w-6 h-6`}
-						className="text-[#FFFDFC] font-['Stoke'] w-full px-14 lg:text-base "
+						className="text-[#FFFDFC] font-['Stoke'] px-14 w-full lg:text-base "
 					/>
 					<Button
 						text="Explore Events"
