@@ -6,7 +6,7 @@ import { Button } from "../components/Button";
 const Footer = () => {
 	return (
 		<div className="w-full h-full px-4 py-8 lg:py-10 lg:px-16 bg-[#030203] text-[#D9D9D9B2]  font-['Manrope']">
-			<div className="flex flex-row flex-wrap lg:flex-row gap-y-7 gap-x-8 lg:gap-x-3 lg:justify-between py-10">
+			<div className="flex flex-row flex-wrap lg:flex-nowrap lg:flex-row gap-y-7 gap-x-8 lg:gap-x-3 lg:justify-between py-10">
 				<div className="flex flex-col gap-3 lg:w-1/4">
 					<p className="text-[#F57328]  font-['Stoke']">TicketMynt</p>
 					<p className="text-[#d9d9d971] text-sm">
@@ -107,7 +107,7 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col gap-4 lg:gap-6 w-full">
+				<div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-1/4">
 					<p className="font-semibold">Subscribe</p>
 					<div>
 						<p className="pb-2 text-[#d9d9d988] text-sm">
