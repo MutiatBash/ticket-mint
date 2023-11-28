@@ -102,7 +102,7 @@ const SignUp = () => {
 						className={`w-full mx-auto py-2 rounded-[28px] text-[#FFFDFC] text-center justify-self-center ${
 							email === ""
 								? "bg-[#3c3a3a9e] disabled:pointer-events-none disabled:cursor-none text-[#fffdfc55] font-normal"
-								: ""
+								: "bg-[#F57328]"
 						}`}
 						text={
 							loading ? (
