@@ -26,7 +26,7 @@ const SignUp = () => {
 			const didToken = await magic.auth.loginWithMagicLink({
 				email,
 				// redirectURI: "http://localhost:5173",
-				redirectURI: "https://ticketmynt.vercel.app",
+				// redirectURI: "https://ticketmynt.vercel.app",
 			});
 			console.log({ didToken });
 			// Send this token to our validation endpoint
