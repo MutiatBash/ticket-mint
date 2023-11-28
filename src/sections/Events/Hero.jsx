@@ -1,5 +1,6 @@
 import React from "react";
 import { Button, IconButton } from "../../components/Button";
+import { Link } from "react-router-dom";
 
 const HeroEvents = () => {
 	return (
@@ -19,6 +20,7 @@ const HeroEvents = () => {
 					digital assets come to life and communities thrive.
 				</p>
 				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center px-5 lg:px-10 w-full lg:w-fit ">
+					<Link to="/create-events">
 						<IconButton
 							text="Create Events"
 							icon="/images/arrow-up-right.svg"
@@ -26,11 +28,13 @@ const HeroEvents = () => {
 							iconStyle={`w-6 h-6`}
 							className="text-[#FFFDFC] font-['Stoke'] px-14 w-full lg:text-base "
 						/>
-			
-					<Button
-						text="Explore Events"
-						className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-16 py-5 w-full lg:px-6 font-['Stoke'] lg:text-base"
-					/>
+					</Link>
+					<Link to="#explore-events">
+						<Button
+							text="Explore Events"
+							className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-16 py-5 w-full lg:px-6 font-['Stoke'] lg:text-base"
+						/>
+					</Link>
 				</div>
 				<div>
 					<img

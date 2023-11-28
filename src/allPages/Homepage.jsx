@@ -14,7 +14,7 @@ import HomeEvents from "../sections/Home/HomeEvents";
 import Hero from "../sections/Home/Hero";
 import { UserContext } from "../Context";
 // import { magic } from "../apis/magic";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 const Homepage = () => {
@@ -31,8 +31,8 @@ const Homepage = () => {
 	// 			// Pull their metadata, update our state, and route to home
 	// 			magic.user.getMetadata().then((userData) => setUser(userData));
 	// 			navigate("/");
-	// 		} 
-  //     // else {
+	// 		}
+	//     // else {
 	// 		// 	// If false, route them to the login page and reset the user state
 	// 		// 	navigate("/signup");
 	// 		// 	setUser({ user: null });
@@ -41,7 +41,7 @@ const Homepage = () => {
 	// 	// Add an empty dependency array so the useEffect only runs once upon page load
 	// }, []);
 
-  // // logout function
+	// // logout function
 	// const logout = () => {
 	// 	// Call Magic's logout method, reset the user state, and route to the login page
 	// 	magic.user.logout().then(() => {
@@ -52,8 +52,8 @@ const Homepage = () => {
 
 	return (
 		<div>
-      <Navbar/>
-	  <Hero/>
+			<Navbar />
+			<Hero />
 			<HomeEvents />
 			<Footer />
 		</div>

@@ -15,7 +15,8 @@ const SignUp = () => {
 	const navigate = useNavigate();
 	useEffect(() => {
 		// Check for an issuer on our user object. If it exists, route them to the dashboard.
-		user?.issuer && navigate("/");
+		// user?.issuer && navigate("/");
+		user?.issuer 
 	}, [user]);
 
 	const handleSignup = async (e) => {
@@ -124,7 +125,7 @@ const SignUp = () => {
 			<div className="absolute top-0 left-0 pointer-events-none">
 				<img src="/images/left-full-gradient.svg" alt="gradient" />
 			</div>
-			{magic?.user?.isLoggedOut && (
+			{user?.issuer && (
 				<div className="fixed w-full backdrop-blur h-full flex flex-col justify-center items-center">
 					<div className="text-[#fdfcfd] bg-[#030203] rounded-2xl p-10 py-8 text-center flex flex-col justify-center items-center gap-8 h-[40%] lg:w-[35%]">
 						<p className="leading-7 text-lg">
