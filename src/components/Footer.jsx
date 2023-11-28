@@ -6,9 +6,8 @@ import { Button } from "../components/Button";
 const Footer = () => {
 	return (
 		<div className="w-full h-full px-4 py-10 lg:px-16 bg-[#030203] text-[#D9D9D9B2]  font-['Manrope']">
-			<div className="flex flex-col flex-wrap md:flex-row justify-between py-10">
-				{/* <img src={Logo} alt="" /> */}
-				<div className="flex flex-col gap-3 w-1/4">
+			<div className="flex flex-row flex-wrap lg:flex-row gap-7 justify-between py-10">
+				<div className="flex flex-col gap-3 lg:w-1/4">
 					<p className="text-[#F57328]  font-['Stoke']">TicketMynt</p>
 					<p className="text-[#d9d9d971] text-sm">
 						Experience a journey where events unfold, NFT tickets shine ,
@@ -120,16 +119,15 @@ const Footer = () => {
 									type="email"
 									name="email"
 									id="email"
-									className="w-full rounded-2xl bg-transparent border border-[#F57328] p-3 mt-2 appearance-none outline-none text-xs md:text-sm text-[#d9d9d971]"
+									className="w-full text-[#fdfcfd] rounded-2xl bg-transparent border border-[#F57328] p-3 mt-2 appearance-none outline-none text-xs md:text-sm text-[#d9d9d971]"
 									required
 									placeholder="Enter your email"
 								/>
 							</div>
 						</label>
 					</div>
-					{/* <Button text={"Subscribe"} className="text-[0.6rem] px-10 text-white w-[80%]" /> */}
 					<div>
-						<button className="bg-[#F57328] font-semibold rounded-[30px]  text-white w-[50%] p-3">
+						<button className="bg-[#F57328] font-semibold rounded-[30px]  text-white w-full lg:w-[50%] p-3">
 							Subscribe
 						</button>
 					</div>
