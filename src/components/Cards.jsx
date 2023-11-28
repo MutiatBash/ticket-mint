@@ -1,8 +1,8 @@
-export const EventsCard = ({ events }) => {
+export const EventsCard = ({ events,index }) => {
     return (
       <div
         className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] w-full p-3 h-full"
-        key={events.id}
+        key={index}
       >
         <div className="flex flex-col gap-3 lg:gap-5 flex-grow justify-self-end">
         <div className="relative">

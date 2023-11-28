@@ -12,9 +12,9 @@ import { WalletButton } from "./WalletButton";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import ProfileModal from "./ProfileModal";
 import { UserContext } from "../Context";
-import { magic } from "../../appApis/magic";
-import { useNavigate } from "react-router-dom";
-import Logo from "/images/ticket-logo.svg";
+import { magic } from "../../api/magic";
+import { useNavigate, redirect } from "react-router-dom";
+import Logo from "/images/logo.svg";
 
 export const links = [
 	{

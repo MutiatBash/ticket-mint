@@ -2,13 +2,13 @@ import { useState , useContext, useEffect} from 'react'
 import { Routes, Route,useNavigate} from "react-router-dom";
 import './App.css'
 import Navbar from './components/Navbar';
-import Login from './pages/Signup'
-import Homepage from './pages/Homepage'
-import EventsPage from './pages/Events/Events'
-import EventsDetails from './pages/Events/EventsDetails';
-import SignUp from './pages/Signup';
+import Login from './allPages/Signup'
+import Homepage from './allPages/Homepage'
+import EventsPage from './allPages/Events/Events'
+import EventsDetails from './allPages/Events/EventsDetails';
+import SignUp from './allPages/Signup';
 import { UserContext } from './Context';
-import { magic } from '../appApis/magic';
+import { magic } from '../api/magic';
 
 
 function App() {

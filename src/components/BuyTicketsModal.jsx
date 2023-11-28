@@ -15,7 +15,7 @@ import {
 	usePrepareContractWrite,
 	useContractRead,
 } from "wagmi";
-import { token } from "../../appApis/testAbi";
+import { token } from "../../api/testAbi";
 
 export const BuyTicketsModal = ({ events, onClose }) => {
 	const [count, setCount] = useState(0);

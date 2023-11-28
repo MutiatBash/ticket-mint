@@ -3,8 +3,8 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { WalletButton } from "../components/WalletButton";
 import { Button } from "../components/Button";
 import { UserContext } from "../Context";
-import { useNavigate, Link } from "react-router-dom";
-import { magic } from "../../appApis/magic";
+import { useNavigate, Link ,redirect} from "react-router-dom";
+import { magic } from "../../api/magic";
 import { ThreeCircles } from "react-loader-spinner";
 
 const SignUp = () => {
@@ -25,12 +25,12 @@ const SignUp = () => {
 		try {
 			const didToken = await magic.auth.loginWithMagicLink({
 				email,
-				// redirectURI: "https://tickets-mint.vercel.app",
+				// redirectURI: "http://localhost:5173",
 				// redirectURI: "https://tickets-mint.vercel.app",
 			});
 			console.log({ didToken });
 			// Send this token to our validation endpoint
-			const res = await fetch("../appApis/apiLogin", {
+			const res = await fetch("/api/login", {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
@@ -40,9 +40,9 @@ const SignUp = () => {
 			setLoading(false);
 			// If successful, update our user state with their metadata and route to the dashboard
 			if (res.ok) {
-				const userData = await magic.user.getUserInfo();
-				setUser(userData);
+				const userData = await magic.user.getInfo();
 				navigate("/");
+				setUser(userData);
 			}
 		} catch (error) {
 			console.error(error);
@@ -99,7 +99,7 @@ const SignUp = () => {
 					<button
 						disabled={email === ""}
 						type="submit"
-						className={`w-full mx-auto py-3 lg:py-4 rounded-[28px] text-[#FFFDFC] text-center self-center ${
+						className={`w-full flex flex-row items-center justify-center mx-auto py-3 lg:py-4 rounded-[28px] text-[#FFFDFC] text-center self-center ${
 							email === ""
 								? "bg-[#3c3a3a9e] disabled:pointer-events-none disabled:cursor-none text-[#fffdfc55] font-normal"
 								: "bg-[#F57328] font-semibold"
@@ -124,7 +124,7 @@ const SignUp = () => {
 			<div className="absolute top-0 left-0 pointer-events-none">
 				<img src="/images/left-full-gradient.svg" alt="gradient" />
 			</div>
-			{user?.issuer && (
+			{magic?.user?.isLoggedOut && (
 				<div className="fixed w-full backdrop-blur h-full flex flex-col justify-center items-center">
 					<div className="text-[#fdfcfd] bg-[#030203] rounded-2xl p-10 py-8 text-center flex flex-col justify-center items-center gap-8 h-[40%] lg:w-[35%]">
 						<p className="leading-7 text-lg">

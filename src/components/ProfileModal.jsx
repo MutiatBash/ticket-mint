@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../Context";
 // import { magic } from "../utils/magic";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faEnvelope,
@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 const ProfileModal = ({ user, setUser, onClick }) => {
 	return (
-		<div className="fixed font-['Manrope'] text-[#fdfcfd] border border-[#d9d9d934] rounded-2xl p-4 bg-[#030203] lg:w-[18rem] top-[4rem] lg:top-[5.5rem] right-4 lg:right-10">
+		<div className="fixed font-['Manrope'] text-[#fdfcfd] border border-[#d9d9d934] rounded-2xl p-4 bg-[#030203] lg:w-[18rem] top-[4rem] lg:top-[5.3rem] right-4 lg:right-10">
 			{user?.loading && <p className="text-[#fdfcfd93] text-sm">Getting your details....</p>}
 			{user?.issuer && (
 				<div className="flex flex-col gap-3 items-start">

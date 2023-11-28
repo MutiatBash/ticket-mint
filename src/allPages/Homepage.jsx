@@ -6,7 +6,7 @@ import {
 	usePrepareContractWrite,
 	useContractRead,
 } from "wagmi";
-import { token } from "../../appApis/testAbi";
+import { token } from "../../api/testAbi";
 import { Button } from "../components/Button";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Footer from "../components/Footer";
