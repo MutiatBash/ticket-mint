@@ -14,6 +14,7 @@ import { EventsCard } from "../../components/Cards";
 import { Button, IconButton } from "../../components/Button";
 import Footer from "../../components/Footer";
 import { BuyTicketsModal } from "../../components/BuyTicketsModal";
+import {Navbar} from "../../components/Navbar"
 
 const EventsDetails = () => {
 	const { eventId } = useParams();
@@ -52,6 +53,7 @@ const EventsDetails = () => {
 
 	return (
 		<div className="relative">
+			<Navbar/>
 			<section className="p-4 py-4 md:p-10 lg:px-16 lg:py-10 flex flex-col my-auto h-full">
 				<Link to="/events">
 					<div className="py-4">
