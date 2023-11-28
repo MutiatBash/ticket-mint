@@ -52,21 +52,21 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 		write?.();
 	};
 	return (
-		<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 inset-x-0 inset-y-0 py-12 h-full overflow-y-hidden">
-			<div className="absolute cursor-pointer right-10" onClick={onClose}>
+		<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">
+			<div className="absolute cursor-pointer right-10 top-10" onClick={onClose}>
 				<FontAwesomeIcon
 					icon={faCircleXmark}
 					style={{ color: "#fff", fontSize: "1.5rem" }}
 				/>
 			</div>
-			<div className="border border-[#D9D9D926] rounded-2xl bg-[#030203] mx-auto z-20 h-full py-8 pt-0 w-[70%] overflow-y-scroll relative pb-0">
+			<div className="border border-[#D9D9D926] rounded-2xl bg-[#030203] mx-auto z-20 h-full py-8 pt-0 w-full lg:w-[70%] overflow-y-scroll pb-0">
 				<div className="absolute top-0 right-0 pointer-events-none">
 					<img src="/images/form-gradient-right.svg" alt="gradient" />
 				</div>
 				<div className="h3-head">
 					<h3 id="heading3">Buy Tickets</h3>
 				</div>
-				<div className="Purchase-form">
+				<div className="Purchase-form translate-y-0">
 					<div className="box">
 						<div className="flex flex-col gap-3 py-6">
 							<p className="p-ticket">

@@ -7,7 +7,7 @@ const HeroEvents = () => {
 			<div>
 				<img
 					src="/images/right-gradient.svg"
-					className="absolute right-0 top-0"
+					className="absolute right-0 top-0 pointer-events-none"
 				/>
 			</div>
 			<div className="flex flex-col gap-6 lg:gap-10 items-center justify-center py-12 lg:py-16 font-['Stoke']">
@@ -22,7 +22,7 @@ const HeroEvents = () => {
 					<IconButton
 						text="Create Events"
 						icon="/images/arrow-up-right.svg"
-						iconStyle={`text-[#FFFDFC] w-6`}
+						iconStyle={`text-[#FFFDFC] w-6 h-6`}
 						className="text-[#FFFDFC] font-['Stoke'] text-sm lg:text-base "
 					/>
 					<Button
@@ -33,7 +33,7 @@ const HeroEvents = () => {
 				<div>
 					<img
 						src="/images/left-gradient.svg"
-						className="absolute left-0 bottom-0"
+						className="absolute left-0 bottom-0 pointer-events-none"
 					/>
 				</div>
 			</div>

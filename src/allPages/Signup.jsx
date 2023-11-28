@@ -50,7 +50,7 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center my-auto p-3 h-screen mb-0 pb-0 font-['Manrope']">
+		<div className="flex flex-col justify-center items-center p-3 mb-0 pb-0 h-screen font-['Manrope']">
 			<div className="absolute top-0 right-0 pointer-events-none">
 				<img src="/images/right-gradient.svg" alt="gradient" />
 			</div>

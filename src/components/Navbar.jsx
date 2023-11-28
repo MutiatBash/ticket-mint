@@ -34,8 +34,8 @@ export const links = [
 	},
 	{
 		id: 4,
-		url: "/terms-of-service",
-		text: "Terms of service",
+		url: "/message",
+		text: "Message",
 	},
 ];
 
