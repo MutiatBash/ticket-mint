@@ -15,7 +15,7 @@ const EventsPage = () => {
       <Navbar/>
       <HeroEvents/>
       <EventsSection/>
-      <div><img src='/images/left-full-gradient.svg' className='absolute left-0 bottom-0'/></div>
+      <div><img src='/images/left-full-gradient.svg' className='absolute left-0 bottom-0 pointer-events-none'/></div>
       <Footer/>
     </div>
   )

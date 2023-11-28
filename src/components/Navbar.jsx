@@ -14,6 +14,7 @@ import ProfileModal from "./ProfileModal";
 import { UserContext } from "../Context";
 import { magic } from "../../appApis/magic";
 import { useNavigate } from "react-router-dom";
+import Logo from "/images/ticket-logo.svg"
 
 export const links = [
 	{
@@ -86,22 +87,22 @@ const Navbar = () => {
 	return (
 		<div className="w-full flex flex-col gap-3 h-full py-[1.1rem] px-4 md:px-14 lg:px-16 bg-[#030202] sticky top-0 z-20">
 			<div className="w-full flex items-center justify-between">
-				<div>
-					{/* <img
-            // src={Logo}
+				<div className="flex flex-row gap-2 items-center">
+					<img
+            src={Logo}
             alt="logo"
-          /> */}
-					<h5 className="text-[#F57328]">TicketMynt</h5>
+          />
+					<h5 className="text-[#F57328] font-['Stoke'] text-[1.1rem]">TicketMynt</h5>
 				</div>
-				<ul className="hidden lg:flex items-center gap-5 lg:gap-[3rem]">
+				<ul className="hidden lg:flex items-center gap-5 lg:gap-8">
 					{links.map((links) => (
 						<li className="group relative" key={links.id}>
 							<Link
 								to={links.url}
-								className={`text-[#F57328] transition duration-300 ease-in ${
+								className={`text-[#F57328] text-[0.9rem] transition duration-300 ease-in ${
 									location.pathname === links.url
 										? " text-[#F57328]"
-										: "text-[#d9d9d9c7]"
+										: "text-[#fdfcfdc4]"
 								}`}
 							>
 								{links.text}
@@ -122,7 +123,7 @@ const Navbar = () => {
 					) : (
 						<Link
 							to="/signup"
-							className="text-[#F57328] font-semibold w-fit"
+							className="text-[#F57328] font-semibold text-[0.9rem] w-fit"
 						>
 							SignUp/Login
 						</Link>
