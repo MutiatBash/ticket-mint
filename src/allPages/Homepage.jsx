@@ -11,6 +11,7 @@ import { Button } from "../components/Button";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Footer from "../components/Footer";
 import HomeEvents from "../sections/Home/HomeEvents";
+import Hero from "../sections/Home/Hero";
 import { UserContext } from "../Context";
 // import { magic } from "../apis/magic";
 import {useNavigate} from "react-router-dom"
@@ -52,6 +53,7 @@ const Homepage = () => {
 	return (
 		<div>
       <Navbar/>
+	  <Hero/>
 			<HomeEvents />
 			<Footer />
 		</div>

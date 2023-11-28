@@ -5,7 +5,7 @@ import { FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export const Button = ({ text, className, onClick , disabled}) => {
     return (
-      <div className="w-full">
+      // <div className="">
         <button
         disabled={disabled}
         onClick={onClick}
@@ -13,21 +13,21 @@ export const Button = ({ text, className, onClick , disabled}) => {
         >
           {text}
         </button>
-      </div>
+      // </div>
     );
   };
  
   
-  export const IconButton = ({ text, className, onClick, icon, iconSize, iconStyle }) => {
+  export const IconButton = ({ text, divClass, className, onClick, icon, iconSize, iconStyle }) => {
     return (
-			<div className="w-full">
+			<div className={divClass}>
 				<button
 					onClick={onClick}
-					className={`flex flex-row justify-between items-center font-['Manrope'] py-[0.8rem] px-4 gap-2 whitespace-nowrap text-base bg-[#F57328] font-bold rounded-[32px] md:py-[0.95rem] md:px-6 hover:scale-105 cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
+					className={`flex flex-row justify-center items-center font-['Manrope'] py-[0.8rem] px-4 gap-2 whitespace-nowrap text-base bg-[#F57328] font-bold rounded-[32px] md:py-[0.95rem] md:px-6 hover:scale-105 cursor-pointer hover:shadow-md transition-all ease-in ${className}`}
 				>
 					<span>{text}</span>
 					<img src={icon} className={iconStyle} />
 				</button>
-			</div>
+		 </div>
 		);
   };

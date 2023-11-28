@@ -17,7 +17,7 @@ const HomeEvents = () => {
         })
       } 
     </div>
-    <Button text="View more" className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-6 font-['Stoke']"/>
+    <Button text="View more" className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-6 font-['Stoke'] self-center" />
     </div>
   )
 }

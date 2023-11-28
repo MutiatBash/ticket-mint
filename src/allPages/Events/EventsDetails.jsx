@@ -63,9 +63,9 @@ const EventsDetails = () => {
 					</div>
 				</Link>
 				{selectedEvent ? (
-					<div className="flex flex-col sm:flex-row justify-between gap-12 md:gap-14 h-full py-6 lg:py-10 lg:pb-16">
+					<div className="flex w-full flex-col sm:flex-row justify-between gap-12 md:gap-14 h-full py-6 lg:py-10 lg:pb-16">
 						<div
-							className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] w-[45%] p-5"
+							className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] lg:w-[45%] p-5"
 							key={events.id}
 						>
 							<div className="w-full">
@@ -81,23 +81,23 @@ const EventsDetails = () => {
 											src={selectedEvent.src}
 										/>
 									</div>
-									<h3 className="font-['Stoke'] text-[#FFFDFC] text-2xl leading-[2.8rem]">
+									<h3 className="font-['Stoke'] text-[#FFFDFC] lg:text-2xl leading-[2.8rem]">
 										{selectedEvent.title}
 									</h3>
 									<div className="flex flex-col gap-1.5 pb-1 justify-self-end">
 										<div className="flex flex-row gap-2 items-center">
-											<p className="text-zinc-300 text-opacity-80 font-normal font-['Manrope']">
+											<p className="text-zinc-300 text-opacity-80 font-normal font-['Manrope'] text-sm lg:text-base">
 												{selectedEvent.date}
 											</p>
 											<span className="text-zinc-300 text-opacity-80">
 												.
 											</span>
-											<p className="text-zinc-300 text-opacity-80 font-normal font-['Manrope']">
+											<p className="text-zinc-300 text-opacity-80 font-normal  text-sm lg:text-base font-['Manrope']">
 												{selectedEvent.time}
 											</p>
 										</div>
 
-										<p className="font-extralight text-[#fffdfcc9] font-['Stoke'] ">
+										<p className="font-extralight text-[#fffdfcc9] text-sm lg:text-base font-['Stoke'] ">
 											{selectedEvent.venue}
 										</p>
 										<p className=" font-['Stoke'] text-[#F57328] ">
@@ -110,7 +110,7 @@ const EventsDetails = () => {
 
 						<div className="flex flex-col justify-between gap-5 lg:gap-6 w-full md:w-[45%] ">
 							<div className="flex flex-col lg:gap-10 h-full justify-between w-full">
-								<h3 className="font-['Stoke'] text-[#FFFDFC] text-3xl leading-[2.8rem]">
+								<h3 className="font-['Stoke'] text-[#FFFDFC] text-xl lg:text-3xl leading-[2.8rem]">
 									{selectedEvent.title}
 								</h3>
 								<p className="text-base lg:text-lg text-[#D9D9D9D1] font-['Manrope'] tracking-wide text-justify">
@@ -133,7 +133,12 @@ const EventsDetails = () => {
 									className="text-[#FFFDFC] font-['Stoke']"
 								/>
 								{/* <div className=""> */}
-									{buyModal && <BuyTicketsModal events={selectedEvent} onClose={()=>setBuyModal(false)}/>}
+								{buyModal && (
+									<BuyTicketsModal
+										events={selectedEvent}
+										onClose={() => setBuyModal(false)}
+									/>
+								)}
 								{/* </div> */}
 							</div>
 							{/* 
@@ -175,10 +180,10 @@ const EventsDetails = () => {
 			</section>
 			{/* SIMILAR EVENTS */}
 			<div className="flex flex-col items-center justify-center py-8 px-4 md:p-10 lg:px-16 lg:py-20 gap-8 relative lg:pt-24">
-				<h2 className="font-['Stoke'] text-[#FFFDFC] text-center text-lg lg:text-4xl">
+				<h2 className="font-['Stoke'] text-[#FFFDFC] text-center text-xl lg:text-4xl">
 					Similar Events
 				</h2>
-				<div className="grid lg:grid-cols-4 gap-8 gap-y-12 bg-[#020302] py-8 lg:py-14">
+				<div className="grid lg:grid-cols-4 gap-5 lg:gap-8 lg:gap-y-12 bg-[#020302] py-5 lg:py-14">
 					{events?.paid?.slice(0, 8).map((events, index) => {
 						return <EventsCard key={index} events={events} />;
 					})}
