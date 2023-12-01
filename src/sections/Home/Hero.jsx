@@ -36,14 +36,14 @@ const Hero = () => {
 					</HashLink>
 				</div>
 			</div>
-			<div class="w-full pr-0 lg:w-[42%] relative right-[15%] lg:right-0 z-10 lg:p-0 lg:m-0">
+			<div class="w-full pr-0 lg:w-[42%] relative top-[30%] right-[15%] lg:right-0 z-10 lg:p-0 lg:m-0">
 				<img
 					src="/images/headphones-2.svg"
 					alt=""
-					class="w-full lg:w-full h-[25rem] lg:h-full"
+					class="w-full lg:w-full h-[25rem] lg:h-[48rem]"
 				/>
 			</div>
-			<div className="absolute bottom-0 w-full lg:top-0 lg:right-0 pointer-events-none lg:w-[60%]">
+			<div className="absolute bottom-0 w-full lg:top-0 lg:right-0 pointer-events-none lg:w-[50%]">
 				<img
 					src="/images/headphone-gradient.svg"
 					alt="gradient"
