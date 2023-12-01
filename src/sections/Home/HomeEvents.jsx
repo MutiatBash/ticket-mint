@@ -13,7 +13,7 @@ const HomeEvents = () => {
 			<div className="absolute top-12 w-full lg:w-[50%] lg:top-5 pointer-events-none">
 				<img src="/images/center-gradient.svg" alt="gradient" />
 			</div>
-			<div className="grid lg:grid-cols-4 gap-8 bg-[#020302] py-8 lg:py-16" id="explore-events">
+			<div className="grid lg:grid-cols-4 gap-8 bg-[#020302] py-8 lg:py-16">
 				{events?.slice(0, 4).map((events, index) => {
 					return <EventsCard key={index} events={events} />;
 				})}

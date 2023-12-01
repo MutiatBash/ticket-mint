@@ -22,7 +22,7 @@ export const EventsCard = ({ events,index }) => {
             </div>
         
             <p className="text-[0.7rem] font-extralight text-[#fffdfcc9] font-['Stoke'] ">{events.venue}</p>
-            <p className="text-[0.7rem] font-['Stoke'] text-[#F57328] ">{events.type}</p>
+            <p className="text-[0.7rem] font-['Stoke'] text-[#F57328] ">{events.price}</p>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Offer = () => {
 	return (
 		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16  py-8 lg:py-14  gap-4 lg:gap-8">
-			<div className="img-sect">
+			<div className="">
 				<img
 					src="./images/download__2_-removebg-preview 1.png"
 					alt=""
@@ -13,7 +13,7 @@ const Offer = () => {
 				/>
 			</div>
 
-			<div className="w-[45%] flex flex-col gap-5 lg:gap-10">
+			<div className="w-full lg:w-[45%] flex flex-col gap-5 lg:gap-10">
 				<h3 className="text-[#fdfcfd] text-2xl lg:text-[3.3rem] lg:leading-[4rem] font-['Stoke']">
 					What We Offer
 				</h3>

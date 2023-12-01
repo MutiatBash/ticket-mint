@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button, IconButton } from "../../components/Button";
+import { HashLink } from "react-router-hash-link";
 
 const Hero = () => {
 	return (
 		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16 lg:pr-0 py-8 lg:py-0  gap-4 lg:gap-8">
 			<div class="lg:w-[45%] flex flex-col gap-5 lg:gap-9 pt-0 mt-0">
 				<h2 class="font-['Stoke'] pt-0 mt-0 text-2xl lg:text-[3.3rem] lg:leading-[4rem] capitalize text-[#fdfcfd]">
-					be present while you {" "}
+					be present while you{" "}
 					<span className="text-[#F57328] capitalize">
 						Enjoy the moments
 					</span>
@@ -28,12 +29,12 @@ const Hero = () => {
 							className="text-[#FFFDFC] font-['Stoke'] px-14 w-full lg:text-base "
 						/>
 					</Link>
-					<Link to="#explore-events">
+					<HashLink smooth to="/events#explore-events">
 						<Button
 							text="Explore Events"
 							className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-16 py-5 w-full lg:px-6 font-['Stoke'] lg:text-base"
 						/>
-					</Link>
+					</HashLink>
 				</div>
 			</div>
 			<div class="lg:w-[42%] z-10 p-0 m-0">

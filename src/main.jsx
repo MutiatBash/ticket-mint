@@ -19,6 +19,7 @@ import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { BrowserRouter } from "react-router-dom";
 import AppContext from "./Contexts/UserContext.jsx";
 import { FormProvider } from "./Contexts/CreateEventContext.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 const { chains, publicClient } = configureChains(
 	[sepolia],
@@ -50,6 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 				<AppContext>
 					<FormProvider>
 						<BrowserRouter>
+							<ScrollToTop />
 							<App />
 						</BrowserRouter>
 					</FormProvider>

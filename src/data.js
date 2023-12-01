@@ -148,6 +148,7 @@ export const events = [
 		date: "Fri, Nov 27",
 		tags: ["tech"],
 		type: "Free",
+		price: "Free",
 	},
 	{
 		id: 2,
@@ -158,6 +159,7 @@ export const events = [
 		date: "Fri, Nov 27",
 		tags: ["tech"],
 		type: "Free",
+		price: "Free",
 	},
 	{
 		id: 3,
@@ -168,6 +170,7 @@ export const events = [
 		date: "Thu, Dec 7",
 		tags: ["tech"],
 		type: "Paid",
+		price: `${10},${0o0}${0o0}${0o0}`,
 	},
 	{
 		id: 4,
@@ -178,6 +181,7 @@ export const events = [
 		date: "9:00",
 		tags: ["tech"],
 		type: "Paid",
+		price: "Free",
 	},
 	{
 		id: 5,
@@ -188,6 +192,7 @@ export const events = [
 		date: "Fri, Nov 27",
 		tags: ["tech"],
 		type: "Free",
+		price: "Free",
 	},
 	{
 		id: 6,
@@ -198,6 +203,7 @@ export const events = [
 		date: "Fri, Nov 27",
 		tags: ["tech"],
 		type: "Free",
+		price: "Free",
 	},
 	{
 		id: 7,
@@ -208,6 +214,7 @@ export const events = [
 		date: "Thu, Dec 7",
 		tags: ["tech"],
 		type: "Paid",
+		price: "Free",
 	},
 	{
 		id: 8,
@@ -218,6 +225,7 @@ export const events = [
 		date: "9:00",
 		tags: ["tech"],
 		type: "paid",
+		price: "Free",
 	},
 	{
 		id: 9,
@@ -228,6 +236,7 @@ export const events = [
 		date: "9:00",
 		tags: ["tech"],
 		type: "paid",
+		price: "Free",
 	},
 	{
 		id: 10,
@@ -238,6 +247,7 @@ export const events = [
 		date: "Thu, Dec 7",
 		tags: ["tech"],
 		type: "Paid",
+		price: "Free",
 	},
 	{
 		id: 11,
@@ -248,6 +258,7 @@ export const events = [
 		date: "Thu, Dec 7",
 		tags: ["tech"],
 		type: "Paid",
+		price: "Free",
 	},
 	{
 		id: 12,
@@ -258,5 +269,6 @@ export const events = [
 		date: "Thu, Dec 7",
 		tags: ["tech"],
 		type: "Paid",
+		price: "Free",
 	},
 ];
