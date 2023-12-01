@@ -5,19 +5,18 @@ import { HashLink } from "react-router-hash-link";
 
 const Hero = () => {
 	return (
-		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16 lg:pr-0 py-8 lg:py-0  gap-4 lg:gap-8">
-			<div class="lg:w-[45%] flex flex-col gap-5 lg:gap-9 pt-0 mt-0">
-				<h2 class="font-['Stoke'] pt-0 mt-0 text-2xl lg:text-[3.3rem] lg:leading-[4rem] capitalize text-[#fdfcfd]">
+		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16 lg:pr-0 py-8 lg:py-0  gap-4 lg:gap-8 relative">
+			<div class="w-full lg:w-[45%] flex flex-col items-center lg:items-start gap-6 lg:gap-9 pt-0 mt-0 text-center lg:text-left">
+				<h2 class="font-['Stoke'] pt-0 mt-0 w-[85%] md:w-full text-2xl lg:text-[3.3rem] lg:leading-[4rem] capitalize text-[#fdfcfd]">
 					be present while you{" "}
 					<span className="text-[#F57328] capitalize">
 						Enjoy the moments
 					</span>
 				</h2>
-				<p class="p_child lg:font-[1.3rem] text-justify lg:w-[89%] leading-7 tracking-wide">
+				<p class="p_child lg:font-[1.3rem] lg:text-justify w-[93%] lg:w-[89%] leading-7 lg:tracking-wide">
 					Elevate your event experiences and unlock unforgettable moments
 					with NFT tickets that serve as digital assets. We aim to curate
-					the best moments for organizers and attendees. Embrace the
-					present and let your moments unfold instantly
+					the best moments for organizers and attendees.
 				</p>
 				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center w-full lg:w-fit ">
 					<Link to="/create-events">
@@ -37,10 +36,14 @@ const Hero = () => {
 					</HashLink>
 				</div>
 			</div>
-			<div class="lg:w-[42%] z-10 p-0 m-0">
-				<img src="/images/headphones.svg" alt="" class="w-full" />
+			<div class="w-full pr-0 lg:w-[42%] relative right-[15%] lg:right-0 z-10 lg:p-0 lg:m-0">
+				<img
+					src="/images/headphones-2.svg"
+					alt=""
+					class="w-full lg:w-full h-[25rem] lg:h-full"
+				/>
 			</div>
-			<div className="absolute top-0 right-0 pointer-events-none lg:w-[60%]">
+			<div className="absolute bottom-0 w-full lg:top-0 lg:right-0 pointer-events-none lg:w-[60%]">
 				<img
 					src="/images/headphone-gradient.svg"
 					alt="gradient"

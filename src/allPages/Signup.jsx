@@ -51,11 +51,10 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center items-center p-3 mb-0 pb-0 h-screen font-['Manrope']">
-			<div className="absolute top-0 right-0 pointer-events-none">
+		<div className="flex flex-row justify-center items-center p-3 mb-0 pb-0 h-screen font-['Manrope'] relative">
+			<div className="absolute top-0 md:-top-52 right-0 pointer-events-none">
 				<img src="/images/right-gradient.svg" alt="gradient" />
 			</div>
-			{/* <div className="flex flex-col w-[95%] lg:w-full mx-auto justify-center items-center"> */}
 			<form
 				action=""
 				onSubmit={handleSignup}
@@ -121,12 +120,11 @@ const SignUp = () => {
 
 				{/* <button className="connect">connect with</button> */}
 			</form>
-			{/* </div> */}
-			<div className="absolute top-0 left-0 pointer-events-none">
-				<img src="/images/left-full-gradient.svg" alt="gradient" />
+			<div className="absolute bottom-0 left-0 pointer-events-none">
+				<img src="/images/left-gradient.svg" alt="gradient" />
 			</div>
 			{user?.issuer && (
-				<div className="fixed w-full backdrop-blur h-full flex flex-col justify-center items-center">
+				<div className=" w-full backdrop-blur flex flex-col justify-center items-center">
 					<div className="text-[#fdfcfd] bg-[#030203] rounded-2xl p-10 py-8 text-center flex flex-col justify-center items-center gap-8 h-[40%] lg:w-[35%]">
 						<p className="leading-7 text-lg">
 							You have Successfully Signed Up or Logged In with your

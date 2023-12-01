@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Offer = () => {
 	return (
-		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16  py-8 lg:py-14  gap-4 lg:gap-8">
+		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16  py-10 lg:py-14  gap-4 lg:gap-8">
 			<div className="">
 				<img
 					src="./images/download__2_-removebg-preview 1.png"
@@ -13,11 +13,11 @@ const Offer = () => {
 				/>
 			</div>
 
-			<div className="w-full lg:w-[45%] flex flex-col gap-5 lg:gap-10">
+			<div className="w-full lg:w-[45%] flex flex-col justify-center items-center lg:items-start gap-8 lg:gap-10 text-center lg:text-left">
 				<h3 className="text-[#fdfcfd] text-2xl lg:text-[3.3rem] lg:leading-[4rem] font-['Stoke']">
 					What We Offer
 				</h3>
-				<p className="text-[#d9d9d9] leading-7">
+				<p className="text-[#d9d9d9] leading-7 w-[95.6%] lg:w-full lg:text-justify">
 					The <span className="text-[#F57328] font-['Stoke']"> TICKETMINT</span> team
 					consistently strives to enhance its digital business ecosystem by
 					developing and refining its products in the form of traditional
