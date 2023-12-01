@@ -1,60 +1,26 @@
 import React, { useState, useContext, useEffect } from "react";
-import {
-	useContractReads,
-	useAccount,
-	useContractWrite,
-	usePrepareContractWrite,
-	useContractRead,
-} from "wagmi";
-import { token } from "../../api/testAbi";
-import { Button } from "../components/Button";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Footer from "../components/Footer";
 import HomeEvents from "../sections/Home/HomeEvents";
 import Hero from "../sections/Home/Hero";
-import { UserContext } from "../Context";
-// import { magic } from "../apis/magic";
-import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Offer from "../sections/Home/Offer";
+import Contact from "../sections/Home/Contact";
+import Thrive from "../sections/Home/Thrive";
+import Categories from "../sections/Home/Categories";
 
 const Homepage = () => {
-	const { user, setUser } = useContext(UserContext);
-
-	const navigate = useNavigate();
-
-	// useEffect(() => {
-	// 	// Set loading to true to display our loading message within pages/homepage.js
-	// 	setUser({ loading: true });
-	// 	// Check if the user is authenticated already
-	// 	magic.user.isLoggedIn().then((isLoggedIn) => {
-	// 		if (isLoggedIn) {
-	// 			// Pull their metadata, update our state, and route to home
-	// 			magic.user.getMetadata().then((userData) => setUser(userData));
-	// 			navigate("/");
-	// 		}
-	//     // else {
-	// 		// 	// If false, route them to the login page and reset the user state
-	// 		// 	navigate("/signup");
-	// 		// 	setUser({ user: null });
-	// 		// }
-	// 	});
-	// 	// Add an empty dependency array so the useEffect only runs once upon page load
-	// }, []);
-
-	// // logout function
-	// const logout = () => {
-	// 	// Call Magic's logout method, reset the user state, and route to the login page
-	// 	magic.user.logout().then(() => {
-	// 		setUser({ user: null });
-	// 		navigate("/signup");
-	// 	});
-	// };
-
 	return (
-		<div>
+		<div className="relative">
 			<Navbar />
 			<Hero />
+			<Categories />
 			<HomeEvents />
+			<Thrive />
+			<Offer />
+			<Contact />
+			<div className="absolute bottom-0 left-0 pointer-events-none">
+				<img src="/images/left-full-gradient.svg" alt="gradient" />
+			</div>
 			<Footer />
 		</div>
 	);

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, IconButton } from "../../components/Button";
 import { Link } from "react-router-dom";
+import {HashLink} from "react-router-hash-link"
 
 const HeroEvents = () => {
 	return (
@@ -29,12 +30,12 @@ const HeroEvents = () => {
 							className="text-[#FFFDFC] font-['Stoke'] px-14 w-full lg:text-base "
 						/>
 					</Link>
-					<Link to="#explore-events">
+					<HashLink smooth to="/events#explore-events">
 						<Button
 							text="Explore Events"
 							className="text-[#F57328] border hover:cursor-pointer border-[#F57328] bg-transparent px-16 py-5 w-full lg:px-6 font-['Stoke'] lg:text-base"
 						/>
-					</Link>
+					</HashLink>
 				</div>
 				<div>
 					<img

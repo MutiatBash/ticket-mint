@@ -10,7 +10,7 @@ const tags = ["All", "Music", "Health", "Tech", "Education", "Finance"];
 
 const EventsSection = () => {
 	return (
-		<div className="flex flex-col justify-center items-center px-4 lg:px-16 py-8 lg:py-20 gap-12 relative">
+		<div className="flex flex-col justify-center items-center px-4 lg:px-16 py-8 lg:py-20 gap-12 relative" id="explore-events">
 			<div className="border border-[#D9D9D926] rounded-2xl p-3 flex flex-row justify-between self-start items-center w-full  lg:w-[50%]">
 				<input
 					placeholder="Search for an event"
@@ -37,7 +37,7 @@ const EventsSection = () => {
 				<img src="/images/center-gradient.svg" alt="gradient" className="pointer-events-none" />
 			</div>
 			<div className="grid lg:grid-cols-4 gap-6 lg:gap-8 lg:gap-y-12 bg-[#020302] py-4 lg:py-8 w-full">
-				{events?.paid?.map((events, index) => {
+				{events?.map((events, index) => {
 					return (
 						<Link to={`/event-details/${events.id}`}>
 							<EventsCard key={index} events={events} />

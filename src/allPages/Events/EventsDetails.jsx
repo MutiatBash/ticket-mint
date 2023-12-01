@@ -21,39 +21,17 @@ const EventsDetails = () => {
 	//   const { addToCart, setCartItems } = useContext(CartContext);
    const [buyModal, setBuyModal] = useState(false)
 	const event = events;
-	const selectedEvent = event?.paid?.find(
+	const selectedEvent = event?.find(
 		(event) => event.id === parseInt(eventId)
 	);
 
     function openBuyModal(){
-        // set
         setBuyModal(!buyModal)
     }
 
-	//   function handleAddToCart() {
-	//     let itemAdded = false;
-	//     if (quantity > 0) {
-	//       addToCart({ ...selectedFood, quantity });
-	//       itemAdded = true;
-	//     }
-
-	//     if (itemAdded) {
-	//       successful();
-	//     } else {
-	//       warning();
-	//     }
-	//   }
-
-	//   function handleQuantityIncrease() {
-	//     setQuantity(quantity + 1);
-	//   }
-	//   function handleQuantityDecrease() {
-	//     setQuantity(quantity - 1);
-	//   }
-
 	return (
 		<div className="relative">
-			<Navbar/>
+			{/* <Navbar/> */}
 			<section className="p-4 py-4 md:p-10 lg:px-16 lg:py-10 flex flex-col my-auto h-full">
 				<Link to="/events">
 					<div className="py-4">
@@ -103,7 +81,7 @@ const EventsDetails = () => {
 											{selectedEvent.venue}
 										</p>
 										<p className=" font-['Stoke'] text-[#F57328] ">
-											{selectedEvent.type}
+											{selectedEvent.price}
 										</p>
 									</div>
 								</div>
@@ -186,7 +164,7 @@ const EventsDetails = () => {
 					Similar Events
 				</h2>
 				<div className="grid lg:grid-cols-4 gap-5 lg:gap-8 lg:gap-y-12 bg-[#020302] py-5 lg:py-14">
-					{events?.paid?.slice(0, 8).map((events, index) => {
+					{events?.slice(0, 8).map((events, index) => {
 						return <EventsCard key={index} events={events} />;
 					})}
 				</div>
