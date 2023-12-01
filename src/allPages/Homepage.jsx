@@ -10,14 +10,17 @@ import Categories from "../sections/Home/Categories";
 
 const Homepage = () => {
 	return (
-		<div>
+		<div className="relative">
 			<Navbar />
 			<Hero />
-			<Categories/>
+			<Categories />
 			<HomeEvents />
-			<Thrive/>
+			<Thrive />
 			<Offer />
-			<Contact/>
+			<Contact />
+			<div className="absolute bottom-0 left-0 pointer-events-none">
+				<img src="/images/left-full-gradient.svg" alt="gradient" />
+			</div>
 			<Footer />
 		</div>
 	);

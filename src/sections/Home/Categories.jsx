@@ -2,8 +2,8 @@ import React from 'react'
 
 const Categories = () => {
   return (
-		<section className="font-['Stoke'] bg-gradient-to-b px-2 lg:px-16  py-4 lg:py-8  gap-4 lg:gap-8">
-			<div className="lg:w-[70%] mx-auto ">
+		<section className="font-['Stoke'] opacity-40 bg-gradient-to-b from-[#f5732845] to-[#19181800] lg:my-8  px-2 lg:px-16  py-4 lg:py-8  gap-4 lg:gap-8">
+			<div className="lg:w-[70%] mx-auto">
 				<ul className="nav-lists flex flex-row items-center justify-between">
 					<li className="nav_children">tech</li>
 					<li className="nav_children">arts</li>
