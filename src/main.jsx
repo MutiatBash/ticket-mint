@@ -9,7 +9,7 @@ import {
 	getDefaultWallets,
 	RainbowKitProvider,
 	midnightTheme,
-  darkTheme
+	darkTheme,
 } from "@rainbow-me/rainbowkit";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { sepolia, polygon, optimism, arbitrum, base, zora } from "wagmi/chains";
@@ -17,7 +17,8 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 import { BrowserRouter } from "react-router-dom";
-import AppContext from "./Context.jsx";
+import AppContext from "./Contexts/UserContext.jsx";
+import { FormProvider } from "./Contexts/CreateEventContext.jsx";
 
 const { chains, publicClient } = configureChains(
 	[sepolia],
@@ -47,9 +48,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 		<WagmiConfig config={wagmiConfig}>
 			<RainbowKitProvider chains={chains} theme={midnightTheme()}>
 				<AppContext>
-					<BrowserRouter>
-						<App />
-					</BrowserRouter>
+					<FormProvider>
+						<BrowserRouter>
+							<App />
+						</BrowserRouter>
+					</FormProvider>
 				</AppContext>
 			</RainbowKitProvider>
 		</WagmiConfig>

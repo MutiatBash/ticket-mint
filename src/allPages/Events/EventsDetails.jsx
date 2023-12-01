@@ -21,35 +21,13 @@ const EventsDetails = () => {
 	//   const { addToCart, setCartItems } = useContext(CartContext);
    const [buyModal, setBuyModal] = useState(false)
 	const event = events;
-	const selectedEvent = event?.paid?.find(
+	const selectedEvent = event?.find(
 		(event) => event.id === parseInt(eventId)
 	);
 
     function openBuyModal(){
-        // set
         setBuyModal(!buyModal)
     }
-
-	//   function handleAddToCart() {
-	//     let itemAdded = false;
-	//     if (quantity > 0) {
-	//       addToCart({ ...selectedFood, quantity });
-	//       itemAdded = true;
-	//     }
-
-	//     if (itemAdded) {
-	//       successful();
-	//     } else {
-	//       warning();
-	//     }
-	//   }
-
-	//   function handleQuantityIncrease() {
-	//     setQuantity(quantity + 1);
-	//   }
-	//   function handleQuantityDecrease() {
-	//     setQuantity(quantity - 1);
-	//   }
 
 	return (
 		<div className="relative">

@@ -8,7 +8,7 @@ import EventsPage from "./allPages/Events/Events";
 import EventsDetails from "./allPages/Events/EventsDetails";
 import CreateEvents from "./allPages/Events/CreateEvents";
 import SignUp from "./allPages/Signup";
-import { UserContext } from "./Context";
+import { UserContext } from "./Contexts/UserContext";
 import { magic } from "../api/magic";
 
 function App() {

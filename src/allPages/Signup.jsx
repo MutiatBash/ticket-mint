@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { WalletButton } from "../components/WalletButton";
 import { Button } from "../components/Button";
-import { UserContext } from "../Context";
+import { UserContext } from "../Contexts/UserContext";
 import { useNavigate, Link ,redirect} from "react-router-dom";
 import { magic } from "../../api/magic";
 import { ThreeCircles } from "react-loader-spinner";

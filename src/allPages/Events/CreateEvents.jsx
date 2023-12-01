@@ -1,19 +1,187 @@
-import React from 'react'
-import { IconButton } from '../../components/Button';
+import React, { useState, useContext } from "react";
+import { IconButton } from "../../components/Button";
+// import { create as ipfsHttpClient } from "ipfs-http-client";
+import { FormContext } from "../../Contexts/CreateEventContext";
+import axios from "axios";
+import {
+	MY_PINATA_JWT,
+	pinata_api_key,
+	pinata_secret_api_key,
+} from "../../../api/pinataKey";
+// import * as fs from "node:fs/promises";
+
+// const axios = require("axios");
+// const FormData = require("form-data");
+// const fs = require("fs");
 
 const CreateEvents = () => {
-  return (
+	const { formData, setFormData } = useContext(FormContext);
+
+	// FUNCTION TO HANDLE INPUT CHANGE FOR THE FORM
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setFormData((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
+	};
+
+	// const ipfs = ipfsHttpClient();
+
+	// function to handle image change
+	// const handleFileSelect = (event) => {
+	// 	const fileInput = event.target;
+	// 	const file = fileInput.files[0];
+
+	// 	if (file) {
+	// 		const reader = new FileReader();
+	// 		reader.onload = function (e) {
+	// 			setFormData((prevData) => ({
+	// 				...prevData,
+	// 				imageFile: file,
+	// 				imageURL: e.target.result,
+	// 			}));
+	// 		};
+
+	// 		reader.readAsDataURL(file);
+	// 	}
+	// };
+
+	// const handleFileSelect = async (event) => {
+	// 	const fileInput = event.target;
+	// 	const file = fileInput.files[0];
+
+	// 	if (file) {
+	// 		try {
+	// 			const imageUrl = await pinFileToIPFS(file);
+	// 			const reader = new FileReader();
+	// 			reader.onload = function (e) {
+	// 				setFormData((prevData) => ({
+	// 					...prevData,
+	// 					imageFile: file,
+	// 					imageURL: imageUrl,
+	// 				}));
+	// 			};
+	// 		} catch (error) {
+	// 			console.error("Error uploading image to IPFS:", error);
+	// 			// Handle error
+	// 		}
+	//       reader.readAsDataURL(file);
+	// 	}
+
+	// };
+
+	const handleFileSelect = (event) => {
+		const fileInput = event.target;
+		const file = fileInput.files[0];
+
+		if (file) {
+			setFormData((prevData) => ({
+				...prevData,
+				imageFile: file,
+			}));
+
+			const reader = new FileReader();
+			reader.onload = function (e) {
+				setFormData((prevData) => ({
+					...prevData,
+					imagePreview: e.target.result,
+				}));
+			};
+
+			reader.readAsDataURL(file);
+		}
+		console.log(`${import.meta.env.DEV.VITE_MY_PINATA_JWT}`);
+	};
+
+	const pinFileToIPFS = async (file) => {
+		const formData = new FormData();
+		formData.append("file", file);
+
+		const metadata = JSON.stringify({
+			name: "File name",
+		});
+		formData.append("pinataMetadata", metadata);
+
+		const options = JSON.stringify({
+			cidVersion: 0,
+		});
+		formData.append("pinataOptions", options);
+
+		// Pin to IPFS using Pinata
+
+		try {
+			const response = await axios.post(
+				"https://api.pinata.cloud/pinning/pinFileToIPFS",
+				formData,
+				{
+					maxBodyLength: "Infinity",
+					headers: {
+						"Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+						Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiNDdjOGE2Yy0zZjZlLTQ2OWEtODMwMC1iMTliZjJjNzlmM2QiLCJlbWFpbCI6Im11dGlhdGJhc2h1YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYTM0NDM5NmVkMTk3ZTYzOGU5ODciLCJzY29wZWRLZXlTZWNyZXQiOiI4ODgyYzJjYmE3NGMyYjUyN2I4NzcwNmIxYTE4ZTQ4ODljNDVjYTc1ZDA5ODVmMjNmMDQ2OTk3NTc5M2U4OGFkIiwiaWF0IjoxNzAxMjYxMDc2fQ.2x0wf0APRvjQV4jsiapC-gl_dX1fJRcwU3dorffre10`,
+						// Authorization: `Bearer import.meta.env.DEV.VITE_MY_PINATA_JWT`,
+					},
+				}
+			);
+
+			console.log("IPFS Pin Response:", response.data);
+			return response.data.IpfsHash;
+		} catch (error) {
+			console.error(
+				"Error pinning to IPFS:",
+				error.response ? error.response.data : error.message
+			);
+			throw error;
+		}
+	};
+
+	const handleFormSubmit = async (e) => {
+		e.preventDefault();
+
+		// // Check if all required fields are filled
+		// if (
+		// !formData.name ||
+		// !formData.date ||
+		// !formData.location ||
+		// !formData.imageFile
+		// ) {
+		// 	console.error("All fields must be filled!");
+		// 	return;
+		// }
+
+		try {
+			// Pin the image to IPFS
+			const imageIPFSHash = await pinFileToIPFS(formData.imageFile);
+
+			// Now you can interact with your smart contract to store the form data and image IPFS hash
+			// Example: Call the createEvent function on your smart contract with the form data and image IPFS hash
+
+			// For simplicity, let's assume you have a smart contract instance
+			// const contractInstance = ...
+
+			// You can call the createEvent function on your smart contract
+			// await contractInstance.createEvent(formData.name, formData.date, formData.location, formData.numberOfTickets, imageIPFSHash);
+
+			// You've now stored the data on the blockchain and the image on IPFS
+
+			// Optionally, you can clear the form data after submission
+			// setFormData({
+			// 	name: "",
+			// 	date: "",
+			// 	location: "",
+			// 	numberOfTickets: 0,
+			// 	imageFile: null,
+			// 	imageIPFSHash: null,
+			// 	imagePreview: null,
+			// });
+		} catch (error) {
+			console.error("Error submitting form:", error);
+		}
+	};
+
+	return (
 		<div>
 			<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">
-				<div
-					className="absolute cursor-pointer right-10 top-10"
-					// onClick={onClose}
-				>
-					{/* <FontAwesomeIcon
-						icon={faCircleXmark}
-						style={{ color: "#fff", fontSize: "1.5rem" }}
-					/> */}
-				</div>
 				<div className="border border-[#D9D9D926] rounded-2xl bg-[#030203] mx-auto z-20 h-full py-8 pt-0 w-full lg:w-[70%] overflow-y-scroll pb-0">
 					<div className="absolute top-0 right-0 pointer-events-none">
 						<img src="/images/form-gradient-right.svg" alt="gradient" />
@@ -28,49 +196,53 @@ const CreateEvents = () => {
 
 								<div className="">
 									<form action="" className="forms py-2">
-										<label htmlFor="Event Name">
+										<label htmlFor="eventName">
 											<span className="Wallet-Address">
 												Event name
 											</span>
 											<input
-												// value={address}
-												// onChange={(e) => setAddress(e.target.value)}
+												value={formData.eventName}
+												name="eventName"
+												onChange={handleInputChange}
 												type="text"
 												className="purchase-input-form placeholder:text-[#d9d9d941]"
-												placeholder="Event name here"
+												placeholder="Event name"
 											/>
 										</label>
-										<label htmlFor="Event venue">
+										<label htmlFor="eventVenue">
 											<span className="Wallet-Address">
 												Event venue
 											</span>
 											<input
-												// value={address}
-												// onChange={(e) => setAddress(e.target.value)}
+												value={formData.eventVenue}
+												name="eventVenue"
+												onChange={handleInputChange}
 												type="text"
 												className="purchase-input-form placeholder:text-[#d9d9d941]"
-												placeholder=""
+												placeholder="Event venue"
 											/>
 										</label>
 										<div className="flex flex-row gap-3">
 											<label htmlFor="Date">
 												<span className="Wallet-Address">Date</span>
 												<input
-													// value={address}
-													// onChange={(e) => setAddress(e.target.value)}
+													value={formData.eventDate}
+													name="eventDate"
+													onChange={handleInputChange}
 													type="text"
 													className="bg-[#191818] border border-[#d9d9d933] text-[#fdfcfd] rounded-lg p-2 placeholder:text-[#d9d9d941]"
-													placeholder=""
+													placeholder="26/07/23"
 												/>
 											</label>
 											<label htmlFor="Time">
 												<span className="Wallet-Address">Time</span>
 												<input
-													// value={address}
-													// onChange={(e) => setAddress(e.target.value)}
+													value={formData.eventTime}
+													name="evenTime"
+													onChange={handleInputChange}
 													type="text"
 													className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.8rem] p-2 placeholder:text-[#d9d9d941]"
-													placeholder=""
+													placeholder="12:00pm"
 												/>
 											</label>
 										</div>
@@ -102,68 +274,104 @@ const CreateEvents = () => {
 								</div>
 
 								<div className="flex flex-row gap-3 pt-3 justify-start items-center">
-									<p className="ticket-h3">Events</p>
+									<p className="ticket-h3">Tickets</p>
 									{/* <p className="ticket-p text-xs pt-0 font-bold">
 										Free
 									</p> */}
 								</div>
 								<div className="ticket-form">
-									<div className="flex flex-row justify-between items-center p-4 py-5">
-										<p className="text-[#D9D9D9CC]">
+									<div className="flex flex-row justify-between items-center p-4 py-5 ">
+										<label
+											htmlFor="numberOfTickets"
+											className="text-[#D9D9D9CC] font-['Manrope']"
+										>
 											General admission
-										</p>
+										</label>
 
-										<div className="flex flex-row justify-between gap-5 items-center">
-											<button
-												className={`bg-[#6D676745] py-0.5 px-2 border border-[#6D6767] rounded-lg cursor-pointer`}
-												// onClick={handleDecreaseTickets}
-												// disabled={amount === 0}
-											>
-												{/* <FontAwesomeIcon
-													icon={faMinus}
-													style={{
-														color:
-															amount >= 1
-																? "#FFFDFC"
-																: "#D9D9D9B2",
-													}}
-												/> */}
-											</button>
-
-											{/* <p className="text-[#F57328] font-bold w-fit">
-												{amount}
-											</p>
-
-											<button
-												className="bg-[#F57328] py-0.5 px-2 rounded-lg cursor-pointer"
-												onClick={handleIncreaseTickets}
-											>
-												<FontAwesomeIcon
-													icon={faPlus}
-													style={{ color: "#FFFDFC" }}
-												/>
-											</button> */}
+										<div className="">
+											<input
+												value={formData.numberOfTickets}
+												name="numberOfTickets"
+												onChange={handleInputChange}
+												type="number"
+												className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.6rem] p-2 placeholder:text-[#d9d9d941]"
+												placeholder=""
+											/>
 										</div>
 									</div>
 									<hr className="hr-line"></hr>
-									<div className="flex flex-row justify-between items-center p-4 py-4"></div>
+									<div className="flex flex-row justify-between items-center p-4 py-4">
+										<label
+											htmlFor="priceOfTickets"
+											className="Wallet-Address"
+										>
+											Price
+										</label>
+										<div className="">
+											<input
+												value={formData.priceOfTickets}
+												name="priceOfTickets"
+												onChange={handleInputChange}
+												type="number"
+												className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.6rem] p-2 placeholder:text-[#d9d9d941]"
+												placeholder=""
+											/>
+										</div>
+									</div>
 								</div>
 
 								<div className="py-10">
 									<IconButton
-										text="Create Events"
+										text="Create Event"
 										icon="/images/arrow-up-right.svg"
 										iconStyle={{ color: "#FFFDFC" }}
 										className="text-[#FFFDFC] font-['Stoke'] text-base "
-										// onClick={handleSendToWallet}
+										onClick={handleFormSubmit}
 									/>
 								</div>
 							</div>
 
 							<div className="vertical"></div>
-							<div className="second">
-								<div>
-									{/* <img src={events?.src} alt="" className="hack-img" /> */}
+							<div className="second flex flex-col gap-3">
+								<div className="text-[#fdfcfd] w-full flex flex-col gap-5">
+									{/* {formData.imagePreview ? (
+										<div className="w-full rounded-lg">
+											<img
+												// src="/images/image-placeholder.png"
+												src={`https://gateway.pinata.cloud/ipfs/${formData.imageIPFSHash}`}
+												alt="Image Preview"
+												className="w-full rounded-lg lg:h-[15rem]"
+											/>
+										</div>
+									) : (
+										<div className="w-full rounded-lg">
+											<img
+												// src="/images/image-placeholder.png"
+												src={formData.imagePreview}
+												alt="Image Preview"
+												className="w-full rounded-lg lg:h-[15rem]"
+											/>
+										</div>
+									)} */}
+
+									<div className="w-full rounded-lg">
+										<img
+											// src="/images/image-placeholder.png"
+											src={formData.imagePreview}
+											alt="Image Preview"
+											className="w-full rounded-lg lg:h-[14.5rem]"
+										/>
+									</div>
+									<div>
+										<input
+											id="file-upload"
+											type="file"
+											onChange={handleFileSelect}
+											name="file"
+											className="border"
+											accept="*/image"
+										/>
+									</div>
 								</div>
 								<div className="flex flex-col gap-8 justify-center">
 									<p className="cart-h6">Upload your event image</p>
@@ -174,7 +382,7 @@ const CreateEvents = () => {
 				</div>
 			</div>
 		</div>
-  );
-}
+	);
+};
 
-export default CreateEvents
+export default CreateEvents;

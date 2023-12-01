@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { UserContext } from "../Context";
+import { UserContext } from "../Contexts/UserContext";
 // import { magic } from "../utils/magic";
 import { useNavigate, redirect } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
