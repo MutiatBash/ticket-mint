@@ -34,7 +34,7 @@ export const EventsCard = ({ events,index }) => {
 export const CommunityEventsCard = ({ events, index }) => {
 		return (
 			<div
-				className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] w-full p-5 h-full"
+				className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] w-full p-3 lg:p-5 h-full"
 				key={index}
 			>
 				<div className="flex flex-col gap-3 lg:gap-5 flex-grow justify-self-end">
