@@ -230,7 +230,7 @@ const CreateEvents = () => {
 													name="eventDate"
 													onChange={handleInputChange}
 													type="text"
-													className="bg-[#191818] border border-[#d9d9d933] text-[#fdfcfd] rounded-lg p-2 placeholder:text-[#d9d9d941]"
+													className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.8rem] p-2 placeholder:text-[#d9d9d941]"
 													placeholder="26/07/23"
 												/>
 											</label>

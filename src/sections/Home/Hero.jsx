@@ -13,12 +13,12 @@ const Hero = () => {
 						Enjoy the moments
 					</span>
 				</h2>
-				<p class="text-[#d9d9d9d1] lg:text-[1.2rem] lg:text-justify w-[93%] lg:w-[85%] leading-7 lg:tracking-wider">
+				<p class="text-[#d9d9d9d1] lg:text-[1.2rem] lg:text-justify w-[93%] lg:w-[80%] leading-7 lg:tracking-wider">
 					Elevate your event experiences and unlock unforgettable moments
 					with NFT tickets that serve as digital assets. We aim to curate
 					the best moments for organizers and attendees.
 				</p>
-				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center w-full lg:w-fit ">
+				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center w-full lg:w-fit lg:pt-4">
 					<Link to="/create-events">
 						<IconButton
 							text="Create Events"
