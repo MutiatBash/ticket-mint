@@ -31,7 +31,7 @@ const SignUp = () => {
 			});
 			console.log({ didToken });
 			// Send this token to our validation endpoint
-			const res = await fetch("/api/login", {
+			const res = await fetch("api/login", {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
