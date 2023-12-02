@@ -10,11 +10,9 @@ import CreateEvents from "./allPages/Events/CreateEvents";
 import SignUp from "./allPages/Signup";
 import { UserContext } from "./Contexts/UserContext";
 import { magic } from "../api/magic";
+import Community from "./allPages/Community";
 
 function App() {
-	const navigate = useNavigate();
-	const { user, setUser } = useContext(UserContext);
-
 	return (
 		<>
 			{/* <Navbar/> */}
@@ -24,6 +22,7 @@ function App() {
 				<Route path="/events" element={<EventsPage />} />
 				<Route path="/create-events" element={<CreateEvents />} />
 				<Route path="/event-details/:eventId" element={<EventsDetails />} />
+				<Route path="/community" element={<Community />} />
 			</Routes>
 		</>
 	);

@@ -34,6 +34,9 @@ export const links = [
 	},
 ];
 
+
+
+
 const Navbar = () => {
 	//   const { cartItems } = useContext(CartContext);
 	const location = useLocation();
