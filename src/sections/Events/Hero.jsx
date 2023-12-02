@@ -16,9 +16,10 @@ const HeroEvents = () => {
 				<h2 className="text-[#FFFDFC]  text-[1.7rem] lg:text-6xl w-full lg:w-[70%] lg:leading-[4.5rem]">
 					Unlock the Future of Memorable Events
 				</h2>
-				<p className="text-[#D9D9D9D1] font-['Manrope']  lg:w-[45%] text-[1.2rem]  lg:text-[1.4rem] pb-4 lg:leading-8">
+				<p className="text-[#D9D9D9D1] font-['Manrope']  lg:w-[50%] lg:text-[1.2rem] pb-4 lg:leading-8">
 					Experience a journey where events unfold, NFT tickets shine ,
-					digital assets come to life and communities thrive.
+					digital assets come to life and communities thrive. Embrace the
+					present and let your moments unfold instantly
 				</p>
 				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center px-5 lg:px-10 w-full lg:w-fit ">
 					<Link to="/create-events">

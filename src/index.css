@@ -14,7 +14,7 @@ body {
 	padding: 0;
 	box-sizing: border-box;
 }
-h{
+h1, h2, h3, h4, h5, h6{
 	font-family: 'Stoke';
 }
 p{
@@ -193,20 +193,6 @@ font-family: 'Manrope';
 	border: 2px solid #e5e5e5;
 	margin-block: 20px;
 }
-/* .login {
-	text-transform: capitalize;
-	border-radius: 50px;
-	width: 80px;
-	padding-block: 8px;
-	font-family: Poppins;
-	text-align: center;
-	font-size: 12px;
-	font-weight: 200;
-	margin-block: 10px;
-	border: 2px solid #f57328;
-	background-color: transparent;
-	color: #f57328;
-} */
 .fpw {
 	text-transform: capitalize;
 	border-radius: 50px;
@@ -312,22 +298,9 @@ font-family: 'Manrope';
 /* LANDING PAGE STYLING */
 
 
-.p_child {
-    /* font-size: 18px;
-    line-height: 30px;
-    font-weight: 300;
-    width: 550px; */
-    color: #D9D9D9;
-}
-
 .sect_hero2 {
     width: 45%;
 }
-
-/* .sect2_img {
-    width: 570px;
-    margin-top: -50px;
-} */
 
 #link-next {
     color: white;
@@ -372,70 +345,6 @@ font-family: 'Manrope';
     margin-block: 100px;
 }
 
-.minor_child1,.minor_child2,.minor_child3,.minor_child4{
-    border: 1px solid #F57328;
-    padding: 20px;
-    border-radius: 10px;
-}
-.minor_child1,.minor_child2,.minor_child3{
-    margin-right: 20px;
-}
-
-.minor_parent {
-    display: flex;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: space-between;
-}
-
-.minor_price {
-    /* font-family: Poppins; */
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 500;
-    text-align: left;
-    color: white;
-}
-
-.p-serve{
-    color:#F57328;
-}
-
-.h6-serve{
-    color: #D9D9D9;
-    font-weight: 100;
-    font-size:xx-small;
-}
-
-.h6-serves{
-    color: #D9D9D9;
-    font-weight: 100;
-    font-size:xx-small;
-    padding-top: 10px;
-}
-
-.minor_img {
-    width: 250px;
-    height: 150px;
-}
-
-.button-next{
-    color: #F57328;
-    border: 1.5px solid #F57328;
-    background-color: transparent;
-    border-radius: 50px;    
-    width: 140px;
-    height: 50px;
-    /* font-family: Poppins; */
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 15px;
-    letter-spacing: 0.15px;
-    text-align: center;
-    text-transform: capitalize;
-    margin-block: 100px;
-}
 
 
 .nav-lists{
@@ -510,3 +419,4 @@ font-family: 'Manrope';
     margin-right: auto;
     color: white;
 }
+

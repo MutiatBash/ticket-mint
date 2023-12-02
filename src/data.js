@@ -272,3 +272,38 @@ export const events = [
 		price: "Free",
 	},
 ];
+
+export const communityEvents = [
+	{
+		id: 1,
+		src: "/images/community-event1.svg",
+		title: "Community Meetup",
+		venue: "Landmark event Centre",
+		time: "9:00",
+		date: "Fri, Nov 27",
+	},
+	{
+		id: 2,
+		src: "/images/community-event2.svg",
+		title: "Night with Stars",
+		venue: "Eko Hotel and Suites",
+		time: "9:00",
+		date: "Fri, Nov 27",
+	},
+	{
+		id: 3,
+		src: "/images/community-event3.svg",
+		title: "Networking Mixer",
+		venue: "Four Points by Sheraton Lagos",
+		time: "8:30",
+		date: "Thu, Dec 7",
+	},
+	{
+		id: 4,
+		src: "/images/community-event4.svg",
+		title: "Events Showcase",
+		venue: "Eko Hotel and Suites",
+		time: "9:00",
+		date: "Thu, Dec 7",
+	},
+];
