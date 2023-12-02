@@ -4,16 +4,16 @@ import { Button } from '../../components/Button';
 const CommunityForm = () => {
   return (
 		<section className="relative py-8 lg:py-24">
-			<div className="flex flex-col justify-center gap-4 lg:gap-14 items-center p-3 font-['Manrope']">
-				<h4 className="text-[#fdfcfd] text-2xl lg:text-4xl lg:py-3 lg:w-[50%] text-center lg:leading-[3.3rem]">
+			<div className="flex flex-col justify-center gap-5 lg:gap-14 items-center p-3  font-['Manrope']">
+				<h4 className="text-[#fdfcfd] text-xl lg:text-4xl w-full py-3 lg:w-[50%] text-center lg:leading-[3.3rem]">
 					Connect With Other Members Of The Community
 				</h4>
 				<form
 					action=""
-					className="signup-form w-full md:w-[50%] p-4 lg:p-8 lg:py-10 flex flex-col gap-4 lg:gap-8 justify-between"
+					className="signup-form w-full md:w-[50%] p-4 py-8 lg:p-8 lg:py-10 flex flex-col gap-4 lg:gap-8 justify-between"
 				>
 					<div className="flex flex-col gap-3">
-						<h3 className="text-[#F57328] text-3xl font-['Stoke']">
+						<h3 className="text-[#F57328] text-2xl lg:text-3xl font-['Stoke']">
 							Join Now
 						</h3>
 					</div>

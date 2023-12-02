@@ -5,20 +5,27 @@ import { HashLink } from "react-router-hash-link";
 
 const Hero = () => {
 	return (
-		<section className="flex flex-col lg:flex-row items-center justify-between px-2 lg:px-16 lg:pr-0 py-8 lg:py-0  gap-4 lg:gap-8 relative">
-			<div class="w-full lg:w-[50%] flex flex-col items-center lg:items-start gap-6 lg:gap-9 pt-0 mt-0 text-center lg:text-left">
-				<h2 class="font-['Stoke'] pt-0 mt-0 w-[85%] md:w-full text-2xl lg:text-6xl lg:leading-[4.2rem] capitalize text-[#fdfcfd] ">
+		<section className="flex flex-col lg:flex-row items-center justify-between px-5 lg:px-16 lg:pr-0 py-12 lg:py-0  gap-4 lg:gap-8 relative">
+			<div className="absolute top-0  w-full lg:-top-[70%] lg:left-0 pointer-events-none">
+				<img
+					src="/images/home-left-gradient.svg"
+					alt="gradient"
+					className="pointer-events-none w-full"
+				/>
+			</div>
+			<div class="w-full lg:w-[50%] flex flex-col items-center lg:items-start gap-7 lg:gap-9 pt-0 mt-0 text-center lg:text-left">
+				<h2 class="font-['Stoke'] pt-0 mt-0 md:w-full text-3xl lg:text-6xl leading-10 lg:leading-[4.2rem] capitalize text-[#fdfcfd] ">
 					be present while you{" "}
 					<span className="text-[#F57328] capitalize">
 						Enjoy the moments
 					</span>
 				</h2>
-				<p class="text-[#d9d9d9d1] lg:text-[1.2rem] lg:text-justify w-[93%] lg:w-[80%] leading-7 lg:tracking-wider">
+				<p class="text-[#d9d9d9d1] lg:text-[1.17rem] w-[95%] lg:w-[84%] leading-7 lg:tracking-wider">
 					Elevate your event experiences and unlock unforgettable moments
 					with NFT tickets that serve as digital assets. We aim to curate
-					the best moments for organizers and attendees.
+					the best for organizers and attendees.
 				</p>
-				<div className="flex flex-col lg:flex-row gap-6 lg:gap-8 justify-center items-center w-full lg:w-fit lg:pt-4">
+				<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-center lg:items-center w-[90%] lg:w-fit lg:pt-4">
 					<Link to="/create-events">
 						<IconButton
 							text="Create Events"
@@ -36,19 +43,21 @@ const Hero = () => {
 					</HashLink>
 				</div>
 			</div>
-			<div class="w-full pr-0 lg:w-[42%] hidden md:block relative top-[30%] right-[15%] lg:right-0 z-10 lg:p-0 lg:m-0">
-				<img
-					src="/images/headphones-2.svg"
-					alt=""
-					class="w-full lg:w-full h-[25rem] lg:h-[48rem]"
-				/>
-			</div>
-			<div className="absolute bottom-0 w-full lg:top-0 lg:right-0 pointer-events-none lg:w-[50%]">
-				<img
-					src="/images/headphone-gradient.svg"
-					alt="gradient"
-					className="pointer-events-none w-full"
-				/>
+			<div className="lg:w-[42%] hidden md:block relative">
+				<div class="w-full pr-0 relative top-[30%] right-[15%] lg:right-0 z-10 lg:p-0 lg:m-0">
+					<img
+						src="/images/headphones-2.svg"
+						alt=""
+						class="w-full lg:w-full h-[25rem] lg:h-[48rem]"
+					/>
+				</div>
+				<div className="hidden lg:block absolute bottom-0 lg:bottom-0 w-full lg:top-0 lg:right-0 pointer-events-none">
+					<img
+						src="/images/headphone-gradient.svg"
+						alt="gradient"
+						className="pointer-events-none w-full"
+					/>
+				</div>
 			</div>
 		</section>
 	);

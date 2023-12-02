@@ -7,7 +7,7 @@ const Contact = () => {
 			<div className="flex flex-row justify-center items-center p-3 font-['Manrope']">
 				<form
 					action=""
-					className="signup-form w-full md:w-[50%] p-4 lg:p-8 lg:py-10 flex flex-col gap-4 lg:gap-8 justify-between"
+					className="signup-form w-full md:w-[50%] p-4 py-8 lg:p-8 lg:py-10 flex flex-col gap-4 lg:gap-8 justify-between"
 				>
 					<div className="flex flex-col gap-3">
 						<h3 className="text-[#F57328] text-3xl font-['Stoke']">

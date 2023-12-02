@@ -8,11 +8,6 @@ import {
 	pinata_api_key,
 	pinata_secret_api_key,
 } from "../../../api/pinataKey";
-// import * as fs from "node:fs/promises";
-
-// const axios = require("axios");
-// const FormData = require("form-data");
-// const fs = require("fs");
 
 const CreateEvents = () => {
 	const { formData, setFormData } = useContext(FormContext);

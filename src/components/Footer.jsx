@@ -107,7 +107,7 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-col gap-4 lg:gap-6 w-full lg:w-1/4">
+				<div className="flex flex-col gap-2 lg:gap-6 w-full lg:w-1/4">
 					<p className="font-semibold">Subscribe</p>
 					<div>
 						<p className="pb-2 text-[#d9d9d988] text-sm">
@@ -119,7 +119,7 @@ const Footer = () => {
 									type="email"
 									name="email"
 									id="email"
-									className="w-full text-[#fdfcfd] rounded-2xl bg-transparent border border-[#F57328] p-3 mt-2 appearance-none outline-none text-xs md:text-sm text-[#d9d9d971]"
+									className="w-full text-[#fdfcfd] rounded-xl lg:rounded-2xl bg-transparent border border-[#F57328] p-3 mt-2 appearance-none outline-none text-xs md:text-sm text-[#d9d9d971]"
 									required
 									placeholder="Enter your email"
 								/>
@@ -134,7 +134,7 @@ const Footer = () => {
 				</div>
 			</div>
 			<div className="border-[0.3px] w-full mt-10 border-[#d9d9d971]"></div>
-			<div className="pt-6 flex flex-row justify-between text-[#d9d9d971]">
+			<div className="pt-6 flex text-sm lg:text-base flex-row justify-between text-[#d9d9d971]">
 				<div>
 					<p>2023 TicketMynt</p>
 				</div>
