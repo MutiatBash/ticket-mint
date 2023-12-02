@@ -14,7 +14,7 @@ import ProfileModal from "./ProfileModal";
 import { UserContext } from "../Contexts/UserContext";
 import { magic } from "../../api/magic";
 import { useNavigate, redirect } from "react-router-dom";
-import Logo from "/images/logo.svg";
+import Logo from "/logo.svg";
 
 export const links = [
 	{
