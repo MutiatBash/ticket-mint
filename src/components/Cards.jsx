@@ -25,7 +25,6 @@ export const EventsCard = ({ events,index }) => {
         
             <p className="text-[0.7rem] font-extralight text-[#fffdfcc9] font-['Stoke'] ">{events.venue}</p>
             <p className="text-[0.7rem] font-['Stoke'] text-[#F57328] ">{events.price}</p>
-            <Link>{optionalLink}</Link>
           </div>
         </div>
       </div>

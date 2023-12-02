@@ -6,6 +6,8 @@ import { UserContext } from "../Contexts/UserContext";
 import { useNavigate, Link ,redirect} from "react-router-dom";
 import { magic } from "../../api/magic";
 import { ThreeCircles } from "react-loader-spinner";
+// import login from "./apiLogin/login";
+import login from "./apiLogin/login"
 
 const SignUp = () => {
 	const { user, setUser } = useContext(UserContext);
@@ -31,7 +33,7 @@ const SignUp = () => {
 			});
 			console.log({ didToken });
 			// Send this token to our validation endpoint
-			const res = await fetch("/api/login", {
+			const res = await fetch("./apiLogin/login", {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
@@ -51,7 +53,7 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="flex flex-row justify-center items-center p-3 mb-0 pb-0 h-screen font-['Manrope'] relative">
+		<div className="flex flex-row justify-center items-center font-['Manrope'] relative h-screen">
 			<div className="absolute top-0 md:-top-52 right-0 pointer-events-none">
 				<img src="/images/right-gradient.svg" alt="gradient" />
 			</div>
@@ -123,19 +125,21 @@ const SignUp = () => {
 			<div className="absolute bottom-0 left-0 pointer-events-none">
 				<img src="/images/left-gradient.svg" alt="gradient" />
 			</div>
-			{user?.issuer && (
-				<div className=" w-full backdrop-blur flex flex-col justify-center items-center">
-					<div className="text-[#fdfcfd] bg-[#030203] rounded-2xl p-10 py-8 text-center flex flex-col justify-center items-center gap-8 h-[40%] lg:w-[35%]">
-						<p className="leading-7 text-lg">
-							You have Successfully Signed Up or Logged In with your
-							email address
-						</p>
-						<button className="rounded-3xl p-3 px-2 bg-[#F57328] font-semibold w-[45%] hover:font-bold hover:scale-105 transition-all ease-in-out">
-							<Link to="/">Go home</Link>
-						</button>
+			{/* <div className="fixed inset-y-0"> */}
+				{user?.issuer && (
+					<div className=" w-full backdrop-blur fixed inset-x-0 inset-y-0 z-20 flex flex-col justify-center items-center">
+						<div className="text-[#fdfcfd] bg-[#030203] rounded-2xl p-10 py-8 text-center flex flex-col justify-center items-center gap-8 h-[40%] lg:w-[35%]">
+							<p className="leading-7 text-lg">
+								You have Successfully Signed Up or Logged In with your
+								email address
+							</p>
+							<button className="rounded-3xl p-3 px-2 bg-[#F57328] font-semibold w-[45%] hover:font-bold hover:scale-105 transition-all ease-in-out">
+								<Link to="/">Go home</Link>
+							</button>
+						</div>
 					</div>
-				</div>
-			)}
+				)}
+			{/* </div> */}
 		</div>
 	);
 };

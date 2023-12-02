@@ -9,9 +9,9 @@ const Hero = () => {
 					<span className="text-[#F57328]">stay in touch</span>
 				</h5>
 				<p className="text-[#d9d9d9d1] lg:w-[75%] lg:text-justify lg:text-[1.2rem]">
-					Dive into our Web3 Events Community! Connect with planners, share
-					event insights, and explore the future of virtual gatherings.
-					Join us in shaping innovative online experiences—your gateway to
+					Dive into our events community! Connect with planners, share
+					event insights, and explore the future of gatherings.
+					Join us in shaping innovative experiences—your gateway to
 					the next era of events!
 				</p>
 
