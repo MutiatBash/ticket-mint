@@ -20,6 +20,9 @@ h1, h2, h3, h4, h5, h6{
 p{
 font-family: 'Manrope';
 }
+ul, ol{
+	list-style: none;
+}
 
 /* VANILLA CSS STYLING */
 /* PURCHASE TICKETS */
@@ -345,8 +348,6 @@ font-family: 'Manrope';
     margin-block: 100px;
 }
 
-
-
 .nav-lists{
     /* display: flex; */
     list-style: none;
@@ -379,25 +380,6 @@ font-family: 'Manrope';
     margin-right: auto;
 }
 
-#next-iconic{
-    color: #F57328;
-    border: 1.5px solid #F57328;
-    background-color: transparent;
-    border-radius: 50px;    
-    width: 150px;
-    height: 50px;
-    /* font-family: Poppins; */
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 15px;
-    letter-spacing: 0.15px;
-    text-align: center;
-    margin-left: 40px;
-    text-transform: capitalize;
-}
-
-
-
 #reserve {
     /* font-family: Poppins; */
     text-align: center;
@@ -418,5 +400,67 @@ font-family: 'Manrope';
     margin-left: auto;
     margin-right: auto;
     color: white;
+}
+
+
+.h6-contribution {
+    color: #fdfcfd;
+    font-family: Manrope;
+    /* font-size: 20px; */
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1px;
+    /* padding-left: 20px; */
+}
+
+.ul-contribution {
+    list-style: none;
+    color: #fdfcfd;
+    font-family: Manrope;
+    /* font-size: 20px; */
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30px;
+   
+}
+
+
+/* .h6-calender {
+    color: #F78F53;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px;
+} */
+
+/* .p-calender {
+    color: #FFF;
+    font-family: Manrope;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    width: 367px;
+    height: 109px;
+    flex-shrink: 0;
+} */
+
+
+
+.h4-heading {
+    color: #FFFDFC;
+    text-align: center;
+    font-family: Stoke;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 1127px;
+    height: 73px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -20px;
+    text-transform: capitalize;
 }
 

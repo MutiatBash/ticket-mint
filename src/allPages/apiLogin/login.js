@@ -4,7 +4,7 @@ import { Magic } from "@magic-sdk/admin";
 // let mAdmin = new Magic(`${import.meta.env.VITE_SECRET_KEY}`);
 let mAdmin = new Magic("sk_live_2AB9F3047DD6EFCD");
 
-export default async function login(req, res) {
+export const login = async (req, res) => {
 	try {
 		// Grab the DID token from our headers and parse it
 		const didToken = mAdmin.utils.parseAuthorizationHeader(
@@ -16,4 +16,4 @@ export default async function login(req, res) {
 	} catch (error) {
 		res.status(500).json({ error: error.message });
 	}
-}
+};

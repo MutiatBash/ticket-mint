@@ -25,7 +25,7 @@ const Hero = () => {
 					with NFT tickets that serve as digital assets. We aim to curate
 					the best for organizers and attendees.
 				</p>
-				<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-center lg:items-center w-[90%] lg:w-fit lg:pt-4">
+				<div className="flex flex-col lg:flex-row gap-4 lg:gap-8 lg:justify-center lg:items-center w-[95%] lg:w-fit lg:pt-4">
 					<Link to="/create-events">
 						<IconButton
 							text="Create Events"
