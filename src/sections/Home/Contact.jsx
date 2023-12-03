@@ -10,7 +10,7 @@ const Contact = () => {
 					className="signup-form w-full md:w-[50%] p-4 py-8 lg:p-8 lg:py-10 flex flex-col gap-4 lg:gap-8 justify-between"
 				>
 					<div className="flex flex-col gap-3">
-						<h3 className="text-[#F57328] text-3xl font-['Stoke']">
+						<h3 className="text-[#F57328] text-2xl lg:text-3xl font-['Stoke']">
 							Get in Touch
 						</h3>
 						{/* <p className="text-[#fffdfce4] py-2">

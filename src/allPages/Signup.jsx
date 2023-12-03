@@ -7,7 +7,7 @@ import { useNavigate, Link ,redirect} from "react-router-dom";
 import { magic } from "../../api/magic";
 import { ThreeCircles } from "react-loader-spinner";
 // import login from "./apiLogin/login";
-import login from "./apiLogin/login"
+// import login from "./apiLogin/login"
 
 const SignUp = () => {
 	const { user, setUser } = useContext(UserContext);
@@ -18,7 +18,16 @@ const SignUp = () => {
 	useEffect(() => {
 		// Check for an issuer on our user object. If it exists, route them to the dashboard.
 		// user?.issuer && navigate("/");
-		user?.issuer 
+		user?.issuer && navigate("/")
+		magic.user.isLoggedIn().then((isLoggedIn) => {
+			if (isLoggedIn) {
+				// Pull their metadata, update our state, and route to home
+				magic.user.getInfo().then((userData) => setUser(userData));
+				navigate("/");
+				setUser({ loading: false });
+				// loading: false
+			}
+		})
 	}, [user]);
 
 	const handleSignup = async (e) => {
@@ -53,7 +62,7 @@ const SignUp = () => {
 	};
 
 	return (
-		<div className="flex flex-row justify-center items-center font-['Manrope'] relative h-screen">
+		<div className="flex flex-row justify-center items-center font-['Manrope'] p-4 relative h-screen">
 			<div className="absolute top-0 md:-top-52 right-0 pointer-events-none">
 				<img src="/images/right-gradient.svg" alt="gradient" />
 			</div>

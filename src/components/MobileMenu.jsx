@@ -7,8 +7,8 @@ export const MobileMenu = () => {
   const location = useLocation();
   return (
 		<div className="bg-[#22212133] z-30 h-screen w-full inset-x-0 fixed top-[3.25rem]">
-			<div className="lg:hidden bg-[#030202] w-full fixed right-0 p-3 py-6 pb-8 flex flex-col gap-6 items-center h-full justify-start">
-				<ul className="lg:hidden flex flex-col items-center gap-7 justify-center">
+			<div className="lg:hidden bg-[#030202] w-full fixed right-0 p-3 py-10 px-10 pt-14 pb-8 flex flex-col gap-6 items-start h-full justify-start">
+				<ul className="lg:hidden flex flex-col items-start gap-7 justify-center">
 					{links.map((links) => (
 						<li className="group relative" key={links.id}>
 							<Link
@@ -24,7 +24,7 @@ export const MobileMenu = () => {
 						</li>
 					))}
 				</ul>
-				<div className="flex flex-col gap-7 items-center justify-between">
+				<div className="flex flex-col gap-7 items-starr justify-between">
 					<Link
 						to="/signup"
 						className="text-[#F57328] font-semibold w-fit"
