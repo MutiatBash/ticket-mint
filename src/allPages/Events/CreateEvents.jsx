@@ -8,10 +8,45 @@ import {
 	pinata_api_key,
 	pinata_secret_api_key,
 } from "../../../api/pinataKey";
+import {
+	useContractReads,
+	useAccount,
+	useContractWrite,
+	usePrepareContractWrite,
+	useContractRead,
+} from "wagmi";
+import { contractDetails } from "../../../api/contractAbi";
 
 const CreateEvents = () => {
 	const { formData, setFormData } = useContext(FormContext);
 
+	const { config, error: createError } = usePrepareContractWrite({
+		address: contractDetails.address,
+		abi: contractDetails.abi,
+		functionName: "createEvent",
+		args: [
+			formData.eventName,
+			formData.eventDate,
+			formData.eventTime,
+			formData.eventVenue,
+			formData.numberOfTickets,
+			formData.ticketPrice,
+			formData.imageHash,
+		],
+	});
+
+	const {
+		data: createEventData,
+		isLoading: createLoading,
+		isSuccess: createSuccess,
+		write,
+	} = useContractWrite(config, createError);
+
+	const handleCreateEvent = (e) => {
+		e?.preventDefault();
+		write?.();
+		console.log(createError);
+	};
 	// FUNCTION TO HANDLE INPUT CHANGE FOR THE FORM
 	const handleInputChange = (e) => {
 		const { name, value } = e.target;
@@ -20,51 +55,6 @@ const CreateEvents = () => {
 			[name]: value,
 		}));
 	};
-
-	// const ipfs = ipfsHttpClient();
-
-	// function to handle image change
-	// const handleFileSelect = (event) => {
-	// 	const fileInput = event.target;
-	// 	const file = fileInput.files[0];
-
-	// 	if (file) {
-	// 		const reader = new FileReader();
-	// 		reader.onload = function (e) {
-	// 			setFormData((prevData) => ({
-	// 				...prevData,
-	// 				imageFile: file,
-	// 				imageURL: e.target.result,
-	// 			}));
-	// 		};
-
-	// 		reader.readAsDataURL(file);
-	// 	}
-	// };
-
-	// const handleFileSelect = async (event) => {
-	// 	const fileInput = event.target;
-	// 	const file = fileInput.files[0];
-
-	// 	if (file) {
-	// 		try {
-	// 			const imageUrl = await pinFileToIPFS(file);
-	// 			const reader = new FileReader();
-	// 			reader.onload = function (e) {
-	// 				setFormData((prevData) => ({
-	// 					...prevData,
-	// 					imageFile: file,
-	// 					imageURL: imageUrl,
-	// 				}));
-	// 			};
-	// 		} catch (error) {
-	// 			console.error("Error uploading image to IPFS:", error);
-	// 			// Handle error
-	// 		}
-	//       reader.readAsDataURL(file);
-	// 	}
-
-	// };
 
 	const handleFileSelect = (event) => {
 		const fileInput = event.target;
@@ -77,16 +67,16 @@ const CreateEvents = () => {
 			}));
 
 			const reader = new FileReader();
+			reader.readAsDataURL(file);
 			reader.onload = function (e) {
 				setFormData((prevData) => ({
 					...prevData,
 					imagePreview: e.target.result,
 				}));
+				console.log(reader.result);
 			};
-
-			reader.readAsDataURL(file);
 		}
-		console.log(`${import.meta.env.DEV.VITE_MY_PINATA_JWT}`);
+		// console.log(`${import.meta.env.DEV.VITE_MY_PINATA_JWT}`);
 	};
 
 	const pinFileToIPFS = async (file) => {
@@ -133,42 +123,53 @@ const CreateEvents = () => {
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
 
-		// // Check if all required fields are filled
-		// if (
-		// !formData.name ||
-		// !formData.date ||
-		// !formData.location ||
-		// !formData.imageFile
-		// ) {
-		// 	console.error("All fields must be filled!");
-		// 	return;
-		// }
+		// 	// // Check if all required fields are filled
+		// 	// if (
+		// 	// !formData.name ||
+		// 	// !formData.date ||
+		// 	// !formData.location ||
+		// 	// !formData.imageFile
+		// 	// ) {
+		// 	// 	console.error("All fields must be filled!");
+		// 	// 	return;
+		// 	// }
 
 		try {
-			// Pin the image to IPFS
-			const imageIPFSHash = await pinFileToIPFS(formData.imageFile);
+			if (formData.imageFile !== null) {
+				// Pin the image to IPFS
+				const ipfsHash = await pinFileToIPFS(formData.imageFile);
+				console.log(ipfsHash);
+				// Set the IPFS hash in the formData
+				setFormData((prevData) => ({
+					...prevData,
+					// imageHash: JSON.stringify(ipfsHash),
+					imageHash: ipfsHash?.toString(),
+				}));
+			}
+			handleCreateEvent();
+			console.log(createEventData);
 
-			// Now you can interact with your smart contract to store the form data and image IPFS hash
-			// Example: Call the createEvent function on your smart contract with the form data and image IPFS hash
+			// 		// Now you can interact with your smart contract to store the form data and image IPFS hash
+			// 		// Example: Call the createEvent function on your smart contract with the form data and image IPFS hash
 
-			// For simplicity, let's assume you have a smart contract instance
-			// const contractInstance = ...
+			// 		// For simplicity, let's assume you have a smart contract instance
+			// 		// const contractInstance = ...
 
-			// You can call the createEvent function on your smart contract
-			// await contractInstance.createEvent(formData.name, formData.date, formData.location, formData.numberOfTickets, imageIPFSHash);
+			// 		// You can call the createEvent function on your smart contract
+			// 		// await contractInstance.createEvent(formData.name, formData.date, formData.location, formData.numberOfTickets, imageIPFSHash);
 
-			// You've now stored the data on the blockchain and the image on IPFS
+			// 		// You've now stored the data on the blockchain and the image on IPFS
 
-			// Optionally, you can clear the form data after submission
-			// setFormData({
-			// 	name: "",
-			// 	date: "",
-			// 	location: "",
-			// 	numberOfTickets: 0,
-			// 	imageFile: null,
-			// 	imageIPFSHash: null,
-			// 	imagePreview: null,
-			// });
+			// 		// Optionally, you can clear the form data after submission
+			// 		// setFormData({
+			// 		// 	name: "",
+			// 		// 	date: "",
+			// 		// 	location: "",
+			// 		// 	numberOfTickets: 0,
+			// 		// 	imageFile: null,
+			// 		// 	imageIPFSHash: null,
+			// 		// 	imagePreview: null,
+			// 		// });
 		} catch (error) {
 			console.error("Error submitting form:", error);
 		}
@@ -233,7 +234,7 @@ const CreateEvents = () => {
 												<span className="Wallet-Address">Time</span>
 												<input
 													value={formData.eventTime}
-													name="evenTime"
+													name="eventTime"
 													onChange={handleInputChange}
 													type="text"
 													className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.8rem] p-2 placeholder:text-[#d9d9d941]"
@@ -297,15 +298,15 @@ const CreateEvents = () => {
 									<hr className="hr-line"></hr>
 									<div className="flex flex-row justify-between items-center p-4 py-4">
 										<label
-											htmlFor="priceOfTickets"
+											htmlFor="ticketPrice"
 											className="Wallet-Address"
 										>
 											Price
 										</label>
 										<div className="">
 											<input
-												value={formData.priceOfTickets}
-												name="priceOfTickets"
+												value={formData.ticketPrice}
+												name="ticketPrice"
 												onChange={handleInputChange}
 												type="number"
 												className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.6rem] p-2 placeholder:text-[#d9d9d941]"
@@ -322,8 +323,27 @@ const CreateEvents = () => {
 										iconStyle={{ color: "#FFFDFC" }}
 										className="text-[#FFFDFC] font-['Stoke'] text-base "
 										onClick={handleFormSubmit}
+										// onClick={handleCreateEvent}
 									/>
 								</div>
+								<p className="text-white">
+									{createLoading ? "creating...." : "create event"}
+								</p>
+
+								<p className="text-white">
+									{createSuccess ? "successful" : "unsuccesful"}
+								</p>
+
+								{/* <p>
+									error message :{" "}
+									{createError ? "error fetching data" : "no error"}
+								</p> */}
+								<p className="text-white">
+									data loading :{" "}
+									{createLoading ? "loading...." : "fetched"} error:
+									{createError ? "error" : ""}
+								</p>
+								{/* <p className="text-white">{createEventData}</p> */}
 							</div>
 
 							<div className="vertical"></div>
@@ -362,9 +382,9 @@ const CreateEvents = () => {
 											id="file-upload"
 											type="file"
 											onChange={handleFileSelect}
-											name="file"
+											name="imageFile"
 											className="border"
-											accept="*/image"
+											// accept="*/image"
 										/>
 									</div>
 								</div>

@@ -16,6 +16,7 @@ import {
 	useContractRead,
 } from "wagmi";
 import { token } from "../../api/testAbi";
+import { contractDetails } from "../../api/contractAbi";
 
 export const BuyTicketsModal = ({ events, onClose }) => {
 	const [count, setCount] = useState(0);
@@ -50,6 +51,8 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 	const handleSendToWallet = (e) => {
 		e.preventDefault();
 		write?.();
+		console.log(error)
+		console.log(error)
 	};
 	return (
 		<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">

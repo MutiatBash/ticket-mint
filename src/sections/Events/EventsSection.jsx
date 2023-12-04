@@ -1,16 +1,57 @@
-import React from "react";
-import { EventsCard } from "../../components/Cards";
+import React, { useEffect } from "react";
+import { ContractEventsCard, EventsCard } from "../../components/Cards";
 import { events } from "../../data";
 import { Button } from "../../components/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { useContractRead, useContractReads } from "wagmi";
+import { contractDetails } from "../../../api/contractAbi";
 
 const tags = ["All", "Music", "Health", "Tech", "Education", "Finance"];
+const contractEvents = [];
 
 const EventsSection = () => {
+	const {
+		data: contractEvents,
+		isError: dataError,
+		isLoading: dataLoading,
+	} = useContractRead({
+		address: contractDetails.address,
+		abi: contractDetails.abi,
+		functionName: "getAllEvents",
+	});
+
+	useEffect(() => {
+		console.log(contractEvents);
+	}, []);
+
+	// const {
+	// 	data: ticketData,
+	// 	isError: ticketError,
+	// 	isLoading,
+	// } = useContractReads({
+	// 	contracts: [
+	// 		{
+	// 			ticketContract,
+	// 			functionName: "buyTickets",
+	// 		},
+	// 		{
+	// 			ticketContract,
+	// 			functionName: "ticketHolders",
+	// 		},
+	// 		{
+	// 			address: token.address,
+	// 			abi: token.abi,
+	// 			functionName: "getTickets",
+	// 		},
+	// 	],
+	// });
 	return (
-		<div className="flex flex-col justify-center items-center px-4 lg:px-16 py-8 lg:py-20 gap-12 relative" id="explore-events">
+		<div
+			className="flex flex-col justify-center items-center px-4 lg:px-16 py-8 lg:py-20 gap-12 relative"
+			id="explore-events"
+		>
 			<div className="border border-[#D9D9D926] rounded-2xl p-3 flex flex-row justify-between self-start items-center w-full  lg:w-[50%]">
 				<input
 					placeholder="Search for an event"
@@ -34,10 +75,23 @@ const EventsSection = () => {
 				})}
 			</div>
 			<div className="absolute top-0 pointer-events-none">
-				<img src="/images/center-gradient.svg" alt="gradient" className="pointer-events-none" />
+				<img
+					src="/images/center-gradient.svg"
+					alt="gradient"
+					className="pointer-events-none"
+				/>
+			</div>
+			<div className="grid lg:grid-cols-4 gap-6 lg:gap-8 lg:gap-y-10 bg-[#020302] py-4  w-full">
+				{contractEvents?.map((event, index) => {
+					return (
+						<Link to={`/contract-event-details/${index}`}>
+							<ContractEventsCard key={index} events={event} />
+						</Link>
+					);
+				})}
 			</div>
 			<div className="grid lg:grid-cols-4 gap-6 lg:gap-8 lg:gap-y-12 bg-[#020302] py-4 lg:py-8 w-full">
-				{events?.map((events, index) => {
+				{events?.slice(0, 8).map((events, index) => {
 					return (
 						<Link to={`/event-details/${events.id}`}>
 							<EventsCard key={index} events={events} />

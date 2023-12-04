@@ -1,14 +1,3 @@
-import React from 'react'
-
-const BuyTickets = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default BuyTickets
 
 import React, {useState}from 'react'
 import { useContractReads, useAccount, useContractWrite,usePrepareContractWrite, useContractRead} from 'wagmi'
@@ -39,7 +28,7 @@ const Eventspage = () => {
         address: token.address,
         abi: token.abi,
         functionName: 'buyTickets',
-        args:[user, amount]
+        args:[user, amount, eventId]
       })
       
       const { data:buyData, isLoading:writeLoading, isSuccess:buySuccess, write } = useContractWrite(config)

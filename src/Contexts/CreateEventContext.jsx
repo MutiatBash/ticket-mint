@@ -10,9 +10,9 @@ export const FormProvider = ({ children }) => {
 		eventTime: "",
 		eventVenue: "",
 		numberOfTickets: 0,
-		priceOfTickets: 0,
-		imageFile: null,
-        imageIPFSHash: null,
+		ticketPrice: 0,
+		imageFile: "",
+        imageHash: "",
         imagePreview:"/images/image-placeholder.png",
 	});
 
