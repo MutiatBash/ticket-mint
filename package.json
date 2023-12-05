@@ -19,6 +19,7 @@
     "@rainbow-me/rainbowkit": "^1.2.0",
     "axios": "^1.6.2",
     "dotenv": "^16.3.1",
+    "file-saver": "^2.0.5",
     "form-data": "^4.0.0",
     "fs": "^0.0.1-security",
     "ipfs-http-client": "^60.0.1",

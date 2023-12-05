@@ -228,7 +228,7 @@ export const BuyContractTicketsModal = ({ events, onClose }) => {
 								{/* <Link to="/events" className="pt-6">
 									<Button text="Go back" className="px-8" />
 								</Link> */}
-								<Link className="pt-6">
+								<Link className="pt-6" to={logo} download="ticket" target="_blank" rel="noreferrer">
 									<Button text="Download ticket" className="px-8" />
 								</Link>
 							</div>
