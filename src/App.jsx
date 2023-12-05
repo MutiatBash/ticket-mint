@@ -6,6 +6,7 @@ import Login from "./allPages/Signup";
 import Homepage from "./allPages/Homepage";
 import EventsPage from "./allPages/Events/Events";
 import EventsDetails from "./allPages/Events/EventsDetails";
+import ContractEventDetails from "./allPages/Events/ContractEventDetails";
 import CreateEvents from "./allPages/Events/CreateEvents";
 import SignUp from "./allPages/Signup";
 import { UserContext } from "./Contexts/UserContext";
@@ -22,6 +23,7 @@ function App() {
 				<Route path="/events" element={<EventsPage />} />
 				<Route path="/create-events" element={<CreateEvents />} />
 				<Route path="/event-details/:eventId" element={<EventsDetails />} />
+				<Route path="/contract-event-details/:index" element={<ContractEventDetails />} />
 				<Route path="/community" element={<Community />} />
 			</Routes>
 		</>

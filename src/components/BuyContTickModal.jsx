@@ -17,24 +17,58 @@ import {
 } from "wagmi";
 import { token } from "../../api/testAbi";
 import { contractDetails } from "../../api/contractAbi";
+import { useParams } from "react-router-dom";
+import logo from "../../src/assets/ticket-logo.svg"
+import {Link} from "react-router-dom"
 
-export const BuyTicketsModal = ({ events, onClose }) => {
-	const [count, setCount] = useState(0);
+
+export const BuyContractTicketsModal = ({ events, onClose }) => {
+// const {formData}
+	const handleDownload = () => {
+		// Logic to trigger the download (e.g., using HTML5 download attribute)
+		// You may need to create a downloadable file or link to the image
+		// For simplicity, let's assume eventData.imageHash is the image URL
+		const downloadLink = document.createElement("a");
+		downloadLink.href = "../../src/assets/ticket-logo.svg";
+		downloadLink.download = "event_ticket.png";
+		downloadLink.click();
+	};
+	const {
+		data: contractEvents,
+		isError: dataError,
+		isLoading: dataLoading,
+	} = useContractRead({
+		address: contractDetails.address,
+		abi: contractDetails.abi,
+		functionName: "getAllEvents",
+	});
+
+	const { eventId } = useParams();
+	const event = contractEvents;
+	const selectedEvent = event[eventId];
+	//  const { eventIndex } = useParams();
+	// const selectedEvent = event[eventIndex];
+	// const selectedEvent = event?.find((event) => event.index === parseInt(eventId));
+	// const selectedEvent = event?.find((e) => e.index === eventId);
+	console.log(selectedEvent);
+	console.log(eventId);
+
 	const [address, setAddress] = useState("");
 	const [amount, setAmount] = useState(0);
+	// const [eventId, setEventId] = useState(events?.index);
+	// const eventId = events?.index;
+	const handleIncreaseTickets = () => {
+		setAmount((prevAmount) => prevAmount + 1);
+	};
 
-	const handleIncreaseTickets =() => {
-		setAmount(prevAmount =>prevAmount + 1);
-	}
-
-    function handleDecreaseTickets() {
-        if(amount > 0){
-			setAmount(prevAmount =>prevAmount - 1);
-        }
+	function handleDecreaseTickets() {
+		if (amount > 0) {
+			setAmount((prevAmount) => prevAmount - 1);
 		}
+	}
 	// WRITING TO THE CONTRACT
 
-	const { config, error } = usePrepareContractWrite({
+	const { config, error: buyError } = usePrepareContractWrite({
 		address: token.address,
 		abi: token.abi,
 		functionName: "buyTickets",
@@ -43,7 +77,7 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 
 	const {
 		data: buyData,
-		isLoading: writeLoading,
+		isLoading: buyLoading,
 		isSuccess: buySuccess,
 		write,
 	} = useContractWrite(config);
@@ -51,12 +85,14 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 	const handleSendToWallet = (e) => {
 		e.preventDefault();
 		write?.();
-		console.log(error)
-		console.log(error)
+		console.log(buyError);
 	};
 	return (
 		<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">
-			<div className="absolute cursor-pointer right-10 top-10" onClick={onClose}>
+			<div
+				className="absolute cursor-pointer right-10 top-10"
+				onClick={onClose}
+			>
 				<FontAwesomeIcon
 					icon={faCircleXmark}
 					style={{ color: "#fff", fontSize: "1.5rem" }}
@@ -72,6 +108,8 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 				<div className="Purchase-form translate-y-0">
 					<div className="box">
 						<div className="flex flex-col gap-3 py-6">
+							<p className="p-ticket">{eventId}</p>
+							<p className="p-ticket">{selectedEvent?.eventName}</p>
 							<p className="p-ticket">
 								Purchase tickets that serve as NFTs that can be owned
 								and minted.
@@ -93,17 +131,6 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 											placeholder="0x078h9uvribu9oupytvtytuyuuy"
 										/>
 									</label>
-
-									{/* <label htmlFor="Email Address">
-										<span className="Wallet-Address">
-											Email Address
-										</span>
-										<input
-											type="email"
-											className="input-form placeholder:text-[#d9d9d941]"
-											placeholder="johndoe@gmail.com"
-										/>
-									</label> */}
 								</form>
 							</div>
 
@@ -123,11 +150,14 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 													: ""
 											}`}
 											onClick={handleDecreaseTickets}
-                                            disabled={amount === 0}
+											disabled={amount === 0}
 										>
 											<FontAwesomeIcon
 												icon={faMinus}
-												style={{color: amount >= 1 ? "#FFFDFC" : "#D9D9D9B2"}}
+												style={{
+													color:
+														amount >= 1 ? "#FFFDFC" : "#D9D9D9B2",
+												}}
 											/>
 										</button>
 
@@ -147,29 +177,7 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 									</div>
 								</div>
 								<hr className="hr-line"></hr>
-								<div className="flex flex-row justify-between items-center p-4 py-4">
-									{/* <p className="text-[#D9D9D9CC]">Vip</p>
-
-									<div className="grid-3 gap-5 items-center">
-										<button
-											className={` bg-[#6D676745] py-0.5 px-2 border border-[#6D6767] rounded-lg`}
-										>
-											<FontAwesomeIcon
-												icon={faMinus}
-												style={{ color: "#D9D9D9B2" }}
-											/>
-										</button>
-
-										<p className="text-[#F57328]">{amount}</p>
-
-										<button className="bg-[#F57328] py-0.5 px-2 rounded-lg">
-											<FontAwesomeIcon
-												icon={faPlus}
-												style={{ color: "#FFFDFC" }}
-											/>
-										</button>
-									</div> */}
-								</div>
+								<div className="flex flex-row justify-between items-center p-4 py-4"></div>
 							</div>
 
 							<div className="py-10">
@@ -178,15 +186,18 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 									icon="/images/arrow-up-right.svg"
 									iconStyle={{ color: "#FFFDFC" }}
 									className="text-[#FFFDFC] font-['Stoke'] text-base "
-                                    onClick={handleSendToWallet}
+									onClick={handleSendToWallet}
 								/>
 							</div>
 						</div>
 
 						<div className="vertical"></div>
 						<div className="second">
-							<div>
-								<img src={events?.src} alt="" className="hack-img" />
+							<div className="w-full">
+								<img
+									className="w-[50%] rounded-lg rotate-90 self-center mx-auto"
+									src={logo}
+								/>
 							</div>
 							<div className="flex flex-col gap-8 justify-center">
 								<p className="cart-h6">Add tickets to your cart</p>
@@ -198,14 +209,36 @@ export const BuyTicketsModal = ({ events, onClose }) => {
 						</div>
 					</div>
 				</div>
+				{buyLoading ||
+					(buySuccess && (
+						<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">
+							<div className=" rounded-2xl bg-[#030203] h-[30%] flex flex-col gap-4 items-center justify-center text-[#fdfcfd] mx-auto z-20 py-8 px-12 text-center w-full lg:w-[30%]">
+								<h3 className="text-2xl lg:text-3xl text-[#F57328]">
+									Event Status
+								</h3>
+								<p className="text-white">
+									{buyLoading
+										? "Buying your tickets...."
+										: buySuccess
+										? "Successful bought your tickets"
+										: buyError
+										? "Unsuccessful"
+										: "An error occurred"}
+								</p>
+								{/* <Link to="/events" className="pt-6">
+									<Button text="Go back" className="px-8" />
+								</Link> */}
+								<Link className="pt-6">
+									<Button text="Download ticket" className="px-8" />
+								</Link>
+							</div>
+						</div>
+					))}
 			</div>
 		</div>
 	);
 };
 
-
-const OptionsModal = ()=>{
-    return(
-        <div></div>
-    )
-}
+const OptionsModal = () => {
+	return <div></div>;
+};
