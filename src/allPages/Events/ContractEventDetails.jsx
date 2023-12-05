@@ -14,6 +14,8 @@ import { BuyTicketsModal } from "../../components/BuyTicketsModal";
 import Navbar from "../../components/Navbar";
 import {useContractRead} from "wagmi"
 import { contractDetails } from "../../../api/contractAbi";
+import { BuyContractTicketsModal } from "../../components/BuyContTickModal";
+import logo from "../../../src/assets/ticket-logo.svg"
 
 const ContractEventDetails = () => {
     const {
@@ -29,7 +31,8 @@ const ContractEventDetails = () => {
 	const { eventId } = useParams();
 	const [buyModal, setBuyModal] = useState(false);
 	const event = contractEvents;
-	const selectedEvent = event?.find((event) => event.id === parseInt(eventId));
+	// const selectedEvent = event?.find((event) => event.index === parseInt(eventId));
+    const selectedEvent = event?.find((e) => e.index === eventId);
 
 	function openBuyModal() {
 		setBuyModal(!buyModal);
@@ -52,19 +55,19 @@ const ContractEventDetails = () => {
 					<div className="flex w-full flex-col sm:flex-row justify-between gap-12 md:gap-14 h-full py-6 lg:py-10 lg:pb-16">
 						<div
 							className="border border-[#D9D9D926] rounded-2xl bg-[#19181833] lg:w-[45%] p-5"
-							key={selectedEvent.id}
+							key={eventId}
 						>
 							<div className="w-full">
 								<div className="flex flex-col gap-3 lg:gap-5">
-									<div className="relative">
+									<div className="relative bg-[#19181833] py-4 rounded-xl ">
 										<p className="absolute">
-											{selectedEvent?.tags.map((tag) => {
+											{selectedEvent?.tags?.map((tag) => {
 												return <span>{tag.tags}</span>;
 											})}
 										</p>
 										<img
-											className="w-full h-35 rounded-lg"
-											src={selectedEvent.imageHash}
+											className="w-[50%] rounded-lg rotate-90 self-center mx-auto"
+											src={logo}
 										/>
 									</div>
 									<h3 className="font-['Stoke'] text-[#FFFDFC] lg:text-2xl leading-[2.8rem]">
@@ -100,7 +103,7 @@ const ContractEventDetails = () => {
 									{selectedEvent.eventName}
 								</h3>
 								<p className="text-base lg:text-lg text-[#D9D9D9D1] font-['Manrope'] tracking-wide text-justify">
-									{/* {selectedEvent.details} */}
+									{eventId}
 									HacktoberFest is a one-day event to be organized by
 									BusinessDay Media. This conference will serve as a
 									platform for all stakeholders in the creative
@@ -120,14 +123,13 @@ const ContractEventDetails = () => {
 								/>
 								{/* <div className=""> */}
 								{buyModal && (
-									<BuyTicketsModal
-										events={selectedEvent}
+									<BuyContractTicketsModal
+                                    events={selectedEvent}
 										onClose={() => setBuyModal(false)}
 									/>
 								)}
 								{/* </div> */}
 							</div>
-							
 						</div>
 					</div>
 				) : (

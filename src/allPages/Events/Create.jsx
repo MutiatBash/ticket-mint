@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
-import { Button, IconButton } from "../../components/Button";
+import { IconButton } from "../../components/Button";
 // import { create as ipfsHttpClient } from "ipfs-http-client";
 import { FormContext } from "../../Contexts/CreateEventContext";
-// import {pinataSDK} from "@pinata/sdk"
 import axios from "axios";
 import {
 	MY_PINATA_JWT,
@@ -17,32 +16,9 @@ import {
 	useContractRead,
 } from "wagmi";
 import { contractDetails } from "../../../api/contractAbi";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 
-// import pinataSDK from "@pinata/sdk";
-
-// const pinataSDK=require('@pinata/sdk')
-
-// pinata = new pinataSDK({
-// 	pinataJWTKey:
-// 		"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiNDdjOGE2Yy0zZjZlLTQ2OWEtODMwMC1iMTliZjJjNzlmM2QiLCJlbWFpbCI6Im11dGlhdGJhc2h1YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYTM0NDM5NmVkMTk3ZTYzOGU5ODciLCJzY29wZWRLZXlTZWNyZXQiOiI4ODgyYzJjYmE3NGMyYjUyN2I4NzcwNmIxYTE4ZTQ4ODljNDVjYTc1ZDA5ODVmMjNmMDQ2OTk3NTc5M2U4OGFkIiwiaWF0IjoxNzAxMjYxMDc2fQ.2x0wf0APRvjQV4jsiapC-gl_dX1fJRcwU3dorffre10",
-// });
-// const res= await pinata.testAuthentication
-// console.log(res);
-
-export const pinataEvents = [""];
 const CreateEvents = () => {
-	
-	function addCIDToStorage(newCID) {
-		// Assume you have a state management or persistent storage mechanism
-		// Here, we'll use a simple global array as an example
-		pinataEvents.push(newCID);
-	}
 	const { formData, setFormData } = useContext(FormContext);
-	// const pinataJWTKey=
-	// 	"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiNDdjOGE2Yy0zZjZlLTQ2OWEtODMwMC1iMTliZjJjNzlmM2QiLCJlbWFpbCI6Im11dGlhdGJhc2h1YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYTM0NDM5NmVkMTk3ZTYzOGU5ODciLCJzY29wZWRLZXlTZWNyZXQiOiI4ODgyYzJjYmE3NGMyYjUyN2I4NzcwNmIxYTE4ZTQ4ODljNDVjYTc1ZDA5ODVmMjNmMDQ2OTk3NTc5M2U4OGFkIiwiaWF0IjoxNzAxMjYxMDc2fQ.2x0wf0APRvjQV4jsiapC-gl_dX1fJRcwU3dorffre10"
 
 	const { config, error: createError } = usePrepareContractWrite({
 		address: contractDetails.address,
@@ -103,62 +79,21 @@ const CreateEvents = () => {
 		// console.log(`${import.meta.env.DEV.VITE_MY_PINATA_JWT}`);
 	};
 
-	// 	// const formData = new FormData();
-	// 	// formData.append("file", file);
-	// 	const body = JSON.stringify({
-	// 		date: formData.eventDame,
-	// 		time: formData.eventTime,
-	// 	});
-	// 	// const metadata = JSON.stringify({
-	// 	// 	name: "Event Details",
-	// 	// 	keyvalues: {
-	// 	// 		date: formData.eventDame,
-	// 	// 		time: formData.eventTime,
-	// 	// 	},
-	// 	// });
-	// 	// formData.append("pinataMetadata", metadata);
-
-	// 	// const options = JSON.stringify({
-	// 	// 	cidVersion: 0,
-	// 	// });
-	// 	// formData.append("pinataOptions", options);
-
-	// 	// Pin to IPFS using Pinata
-
-	// 	try {
-	// 		const response = await axios.post(
-	// 			"https://api.pinata.cloud/pinning/pinJSONToIPFS",
-	// 			body,
-	// 			{
-	// 				maxBodyLength: "Infinity",
-	// 				headers: {
-	// 					"Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
-	// 					Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiNDdjOGE2Yy0zZjZlLTQ2OWEtODMwMC1iMTliZjJjNzlmM2QiLCJlbWFpbCI6Im11dGlhdGJhc2h1YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYTM0NDM5NmVkMTk3ZTYzOGU5ODciLCJzY29wZWRLZXlTZWNyZXQiOiI4ODgyYzJjYmE3NGMyYjUyN2I4NzcwNmIxYTE4ZTQ4ODljNDVjYTc1ZDA5ODVmMjNmMDQ2OTk3NTc5M2U4OGFkIiwiaWF0IjoxNzAxMjYxMDc2fQ.2x0wf0APRvjQV4jsiapC-gl_dX1fJRcwU3dorffre10`,
-	// 					// Authorization: `Bearer import.meta.env.DEV.VITE_MY_PINATA_JWT`,
-	// 				},
-	// 			}
-	// 		);
-
-	// 		console.log("IPFS Pin Response:", response.data);
-	// 		return response.data.IpfsHash;
-	// 	} catch (error) {
-	// 		console.error(
-	// 			"Error pinning to IPFS:",
-	// 			error.response ? error.response.data : error.message
-	// 		);
-	// 		throw error;
-	// 	}
-	// };
-
-	const pinJsonToIPFS = async (jsonObject) => {
-		const jsonString = JSON.stringify(jsonObject);
-		const pinataJWTKey =
-			"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiNDdjOGE2Yy0zZjZlLTQ2OWEtODMwMC1iMTliZjJjNzlmM2QiLCJlbWFpbCI6Im11dGlhdGJhc2h1YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYTM0NDM5NmVkMTk3ZTYzOGU5ODciLCJzY29wZWRLZXlTZWNyZXQiOiI4ODgyYzJjYmE3NGMyYjUyN2I4NzcwNmIxYTE4ZTQ4ODljNDVjYTc1ZDA5ODVmMjNmMDQ2OTk3NTc5M2U4OGFkIiwiaWF0IjoxNzAxMjYxMDc2fQ.2x0wf0APRvjQV4jsiapC-gl_dX1fJRcwU3dorffre10";
-
+	const pinFileToIPFS = async (file) => {
 		const formData = new FormData();
-		const blob = new Blob([jsonString], { type: "application/json" });
+		formData.append("file", file);
 
-		formData.append("file", blob, "data.json");
+		const metadata = JSON.stringify({
+			name: "File name",
+		});
+		formData.append("pinataMetadata", metadata);
+
+		const options = JSON.stringify({
+			cidVersion: 0,
+		});
+		formData.append("pinataOptions", options);
+
+		// Pin to IPFS using Pinata
 
 		try {
 			const response = await axios.post(
@@ -169,18 +104,13 @@ const CreateEvents = () => {
 					headers: {
 						"Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
 						Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJiNDdjOGE2Yy0zZjZlLTQ2OWEtODMwMC1iMTliZjJjNzlmM2QiLCJlbWFpbCI6Im11dGlhdGJhc2h1YUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwicGluX3BvbGljeSI6eyJyZWdpb25zIjpbeyJpZCI6IkZSQTEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX0seyJpZCI6Ik5ZQzEiLCJkZXNpcmVkUmVwbGljYXRpb25Db3VudCI6MX1dLCJ2ZXJzaW9uIjoxfSwibWZhX2VuYWJsZWQiOmZhbHNlLCJzdGF0dXMiOiJBQ1RJVkUifSwiYXV0aGVudGljYXRpb25UeXBlIjoic2NvcGVkS2V5Iiwic2NvcGVkS2V5S2V5IjoiYTM0NDM5NmVkMTk3ZTYzOGU5ODciLCJzY29wZWRLZXlTZWNyZXQiOiI4ODgyYzJjYmE3NGMyYjUyN2I4NzcwNmIxYTE4ZTQ4ODljNDVjYTc1ZDA5ODVmMjNmMDQ2OTk3NTc5M2U4OGFkIiwiaWF0IjoxNzAxMjYxMDc2fQ.2x0wf0APRvjQV4jsiapC-gl_dX1fJRcwU3dorffre10`,
+						// Authorization: `Bearer import.meta.env.DEV.VITE_MY_PINATA_JWT`,
 					},
 				}
 			);
 
 			console.log("IPFS Pin Response:", response.data);
-			const cid = response.data.IpfsHash;
-
-			addCIDToStorage(cid);
-
-			console.log(pinataEvents);
-
-			return cid;
+			return response.data.IpfsHash;
 		} catch (error) {
 			console.error(
 				"Error pinning to IPFS:",
@@ -193,21 +123,44 @@ const CreateEvents = () => {
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
 
+		// 	// // Check if all required fields are filled
+		// 	// if (
+		// 	// !formData.name ||
+		// 	// !formData.date ||
+		// 	// !formData.location ||
+		// 	// !formData.imageFile
+		// 	// ) {
+		// 	// 	console.error("All fields must be filled!");
+		// 	// 	return;
+		// 	// }
+
 		try {
 			if (formData.imageFile !== null) {
 				// Pin the image to IPFS
-				const ipfsHash = await pinJsonToIPFS(formData);
+				const ipfsHash = await pinFileToIPFS(formData.imageFile);
 				console.log(ipfsHash);
-
 				// Set the IPFS hash in the formData
-				// setFormData((prevData) => ({
-				// 	...prevData,
-				// 	// imageHash: JSON.stringify(ipfsHash),
-				// 	imageHash: ipfsHash?.toString(),
-				// }));
+				setFormData((prevData) => ({
+					...prevData,
+					// imageHash: JSON.stringify(ipfsHash),
+					imageHash: ipfsHash?.toString(),
+				}));
 			}
 			handleCreateEvent();
 			console.log(createEventData);
+
+			// 		// Now you can interact with your smart contract to store the form data and image IPFS hash
+			// 		// Example: Call the createEvent function on your smart contract with the form data and image IPFS hash
+
+			// 		// For simplicity, let's assume you have a smart contract instance
+			// 		// const contractInstance = ...
+
+			// 		// You can call the createEvent function on your smart contract
+			// 		// await contractInstance.createEvent(formData.name, formData.date, formData.location, formData.numberOfTickets, imageIPFSHash);
+
+			// 		// You've now stored the data on the blockchain and the image on IPFS
+
+			// 		// Optionally, you can clear the form data after submission
 			// 		// setFormData({
 			// 		// 	name: "",
 			// 		// 	date: "",
@@ -221,19 +174,10 @@ const CreateEvents = () => {
 			console.error("Error submitting form:", error);
 		}
 	};
-	
+
 	return (
 		<div>
 			<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">
-				<Link to="/events">
-					<div className="absolute cursor-pointer right-10 top-10">
-						<FontAwesomeIcon
-							icon={faCircleXmark}
-							style={{ color: "#fff", fontSize: "1.5rem" }}
-						/>
-					</div>
-				</Link>
-
 				<div className="border border-[#D9D9D926] rounded-2xl bg-[#030203] mx-auto z-20 h-full py-8 pt-0 w-full lg:w-[70%] overflow-y-scroll pb-0">
 					<div className="absolute top-0 right-0 pointer-events-none">
 						<img src="/images/form-gradient-right.svg" alt="gradient" />
@@ -281,7 +225,7 @@ const CreateEvents = () => {
 													value={formData.eventDate}
 													name="eventDate"
 													onChange={handleInputChange}
-													type="date"
+													type="text"
 													className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.8rem] p-2 placeholder:text-[#d9d9d941]"
 													placeholder="26/07/23"
 												/>
@@ -292,17 +236,44 @@ const CreateEvents = () => {
 													value={formData.eventTime}
 													name="eventTime"
 													onChange={handleInputChange}
-													type="time"
+													type="text"
 													className="bg-[#191818] border border-[#d9d9d955] text-[#fdfcfd] rounded-[0.8rem] p-2 placeholder:text-[#d9d9d941]"
 													placeholder="12:00pm"
 												/>
 											</label>
 										</div>
+
+										<label htmlFor="Wallet Address">
+											<span className="Wallet-Address">
+												Wallet Address
+											</span>
+											<input
+												// value={address}
+												// onChange={(e) => setAddress(e.target.value)}
+												type="text"
+												className="purchase-input-form placeholder:text-[#d9d9d941]"
+												placeholder="0x078h9uvribu9oupytvtytuyuuy"
+											/>
+										</label>
+
+										{/* <label htmlFor="Email Address">
+										<span className="Wallet-Address">
+											Email Address
+										</span>
+										<input
+											type="email"
+											className="input-form placeholder:text-[#d9d9d941]"
+											placeholder="johndoe@gmail.com"
+										/>
+									</label> */}
 									</form>
 								</div>
 
 								<div className="flex flex-row gap-3 pt-3 justify-start items-center">
 									<p className="ticket-h3">Tickets</p>
+									{/* <p className="ticket-p text-xs pt-0 font-bold">
+										Free
+									</p> */}
 								</div>
 								<div className="ticket-form">
 									<div className="flex flex-row justify-between items-center p-4 py-5 ">
@@ -355,13 +326,52 @@ const CreateEvents = () => {
 										// onClick={handleCreateEvent}
 									/>
 								</div>
+								<p className="text-white">
+									{createLoading ? "creating...." : "create event"}
+								</p>
+
+								<p className="text-white">
+									{createSuccess ? "successful" : "unsuccesful"}
+								</p>
+
+								{/* <p>
+									error message :{" "}
+									{createError ? "error fetching data" : "no error"}
+								</p> */}
+								<p className="text-white">
+									data loading :{" "}
+									{createLoading ? "loading...." : "fetched"} error:
+									{createError ? "error" : ""}
+								</p>
+								{/* <p className="text-white">{createEventData}</p> */}
 							</div>
 
 							<div className="vertical"></div>
 							<div className="second flex flex-col gap-3">
 								<div className="text-[#fdfcfd] w-full flex flex-col gap-5">
+									{/* {formData.imagePreview ? (
+										<div className="w-full rounded-lg">
+											<img
+												// src="/images/image-placeholder.png"
+												src={`https://gateway.pinata.cloud/ipfs/${formData.imageIPFSHash}`}
+												alt="Image Preview"
+												className="w-full rounded-lg lg:h-[15rem]"
+											/>
+										</div>
+									) : (
+										<div className="w-full rounded-lg">
+											<img
+												// src="/images/image-placeholder.png"
+												src={formData.imagePreview}
+												alt="Image Preview"
+												className="w-full rounded-lg lg:h-[15rem]"
+											/>
+										</div>
+									)} */}
+
 									<div className="w-full rounded-lg">
 										<img
+											// src="/images/image-placeholder.png"
 											src={formData.imagePreview}
 											alt="Image Preview"
 											className="w-full rounded-lg lg:h-[14.5rem]"
@@ -384,26 +394,6 @@ const CreateEvents = () => {
 							</div>
 						</div>
 					</div>
-					{createLoading ||
-						(createSuccess && (
-							<div className="bg-[#19181870] backdrop-blur w-full fixed mx-auto z-20 flex flex-col justify-center items-start inset-x-0 inset-y-0 py-12 overflow-y-hidden">
-								<div className=" rounded-2xl bg-[#030203] h-[30%] flex flex-col gap-4 items-center justify-center text-[#fdfcfd] mx-auto z-20 py-8 px-12 text-center w-full lg:w-[30%]">
-									<h3 className="text-2xl lg:text-3xl text-[#F57328]">
-										Event Status
-									</h3>
-									<p className="text-white">
-										{createLoading
-											? "Creating your event...."
-											: createSuccess
-											? "Successful created your event"
-											: "Unsuccessful"}
-									</p>
-									<Link to="/events" className="pt-6">
-										<Button text="Go back" className="px-8" />
-									</Link>
-								</div>
-							</div>
-						))}
 				</div>
 			</div>
 		</div>

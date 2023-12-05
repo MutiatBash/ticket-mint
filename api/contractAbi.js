@@ -1,5 +1,5 @@
 export const contractDetails = {
-	address: "0x618DE7D4e266a0f9B0E48dc1A00999fe5EE5Deb2",
+	address: "0x8686510a1acb6f69d1a822d1450a14684b05e543",
 	abi: [
 		{ inputs: [], stateMutability: "nonpayable", type: "constructor" },
 		{
@@ -164,7 +164,6 @@ export const contractDetails = {
 		},
 		{
 			inputs: [
-				{ internalType: "uint256", name: "eventId", type: "uint256" },
 				{
 					internalType: "uint256",
 					name: "numberOfTickets",

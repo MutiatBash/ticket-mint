@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../../src/assets/ticket-logo.svg"
 
 export const EventsCard = ({ events,index }) => {
     return (
@@ -77,13 +78,17 @@ export const CommunityEventsCard = ({ events, index }) => {
 				key={index}
 			>
 				<div className="flex flex-col gap-3 lg:gap-5 flex-grow justify-self-end">
-					<div className="relative">
+					<div className="relative bg-[#19181833] py-4 rounded-xl ">
 						<p className="absolute">
 							{events?.tags?.map((tag) => {
 								return <span>{tag.tags}</span>;
 							})}
 						</p>
-						<img className="w-full h-35 rounded-lg" src={events.imageHash} />
+
+						<img
+							className="w-[50%] rounded-lg rotate-90 self-center mx-auto"
+							src={logo}
+						/>
 					</div>
 					<h3 className="font-['Stoke'] text-[#FFFDFC] text-[14px]">
 						{events.eventName}
